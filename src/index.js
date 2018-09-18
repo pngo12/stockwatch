@@ -16,8 +16,6 @@ const store = createStore(
     applyMiddleware(thunk)
 );
 
-
-
 ReactDOM.render(
 
 <Provider store={store}>

@@ -6,13 +6,12 @@ import Quote from './quote'
 import Loading from '../../images/loading.gif'
 
 class Dashboard extends Component {
-    state = {  }
-    render() { 
+    render() {
+        if(this.props.isLoading){
+            return <img src={Loading} alt='A loading gif'/>
+        } 
         return ( 
             <div className="container">
-            {
-                this.props.isLoading && <img src={Loading}/>
-            }
                 <Profile />
                 <Quote />
                 <Chart />

@@ -21,7 +21,7 @@ class Quote extends Component {
                     </tr>
                     <tr>
                         <td>${quote.high}</td>
-                        <td>${quote.changePercentage}%</td>
+                        <td>{quote.changePercentage}%</td>
                     </tr>
                     <tr>
                         <th>Low</th>

@@ -3,40 +3,39 @@ import {Line} from 'react-chartjs-2'
 import {connect} from 'react-redux'
 
 class Chart extends Component {
-     returnData = () => {
-         const data = {
-             labels: [this.props.chartData.date],
-                 datasets: [
-                     {
-                         label: 'Test Chart',
-                         fill: false,
-                         lineTension: 0.1,
-                         backgroundColor: 'rgba(75,192,192,0.4)',
-                         borderColor: 'rgba(75,192,192,1)',
-                         borderCapStyle: 'butt',
-                         borderDash: [],
-                         borderDashOffset: 0.0,
-                         borderJoinStyle: 'miter',
-                         pointBorderColor: 'rgba(75,192,192,1)',
-                         pointBackgroundColor: '#fff',
-                         pointBorderWidth: 1,
-                         pointHoverRadius: 5,
-                         pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                         pointHoverBorderColor: 'rgba(220,220,220,1)',
-                         pointHoverBorderWidth: 2,
-                         pointRadius: 1,
-                         pointHitRadius: 10,
-                         data: [20,25,31]
-                     }
-                 ]
-            }
-            return data
-        }
+    state = {
+         data: {
+            labels: this.props.chartData.data.map(arr => arr.minute),
+            datasets: [
+                {
+                    label: 'Daily Prices',
+                    fill: false,
+                    lineTension: 0.1,
+                    backgroundColor: 'rgba(75,192,192,0.4)',
+                    borderColor: 'rgba(75,192,192,1)',
+                    borderCapStyle: 'butt',
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: 'miter',
+                    pointBorderColor: 'rgba(75,192,192,1)',
+                    pointBackgroundColor: '#fff',
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    data: this.props.chartData.data.map(arr => arr.high)
+                },
+            ],
+        },
+    }
 
     render() {
         return ( 
             <div>
-                <Line data={this.returnData}/>
+                <Line data={this.state.data}/>
             </div>
          );
     }
@@ -47,3 +46,35 @@ const mapStateToProps = state => ({
 })
  
 export default connect(mapStateToProps, null)(Chart)
+
+
+
+    //  returnData = () => {
+    //      const data = {
+    //          labels: [this.props.chartData.date],
+    //              datasets: [
+    //                  {
+    //                      label: 'Test Chart',
+    //                      fill: false,
+    //                      lineTension: 0.1,
+    //                      backgroundColor: 'rgba(75,192,192,0.4)',
+    //                      borderColor: 'rgba(75,192,192,1)',
+    //                      borderCapStyle: 'butt',
+    //                      borderDash: [],
+    //                      borderDashOffset: 0.0,
+    //                      borderJoinStyle: 'miter',
+    //                      pointBorderColor: 'rgba(75,192,192,1)',
+    //                      pointBackgroundColor: '#fff',
+    //                      pointBorderWidth: 1,
+    //                      pointHoverRadius: 5,
+    //                      pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+    //                      pointHoverBorderColor: 'rgba(220,220,220,1)',
+    //                      pointHoverBorderWidth: 2,
+    //                      pointRadius: 1,
+    //                      pointHitRadius: 10,
+    //                      data: []
+    //                  }
+    //              ]
+    //         }
+    //         return data
+    //     }

@@ -7,14 +7,12 @@ class HeroHome extends Component {
         showInput: false,
         hideButton: false
      }
-
      renderInput = () => {
          this.setState({
              showInput: true,
              hideButton: true
          })
      }
-
     render() { 
         return ( 
             <section className="hero is-light is-fullheight">
@@ -39,10 +37,10 @@ class HeroHome extends Component {
                         <h1 className="title">Stock Watch</h1>
                             <h2 className="subtitle">Let's get yo data playa</h2>
                         {
-                        !this.state.hideButton && <Button onClick={this.renderInput} text='Get Started' />
+                            !this.state.hideButton && <Button onClick={this.renderInput} text='Get Started' />
                         }
                         {
-                        this.state.showInput && <SearchInput />
+                            this.state.showInput && <SearchInput />
                         }
                     </div>
                 </div>

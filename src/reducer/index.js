@@ -1,4 +1,4 @@
-import * as constant from '../constants'
+import {RECEIVED_ALL_DATA} from '../constants'
 
 const initialState = {
     quote: {},
@@ -6,20 +6,17 @@ const initialState = {
     earnings: {},
     financials: {},
     peers: '',
-    chart: [],
-    isLoading: false
+    chart: [10],
+    isLoading: false,
+    redirect: false
 }
 
 const rootReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case constant.GET_QUOTE:
-        return {...state, quote:action.payload }
-        case constant.GET_COMPANY:
-        return {...state, company:action.payload}
-        case constant.GET_CHART:
-        return {...state, chart:action.payload}
+    switch (action.type) {
+        case RECEIVED_ALL_DATA:
+            return { ...state, ...action.payload, redirect: true }
         default:
-        return state
+            return state
     }
 }
 
