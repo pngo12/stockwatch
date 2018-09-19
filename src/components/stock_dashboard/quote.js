@@ -14,6 +14,7 @@ class Quote extends Component {
                     <tr>
                         <td>${quote.open}</td>
                         <td>${quote.change}</td>
+                        
                     </tr>
                     <tr>
                         <th>High</th>

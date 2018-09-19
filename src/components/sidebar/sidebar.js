@@ -1,11 +1,26 @@
 import React from 'react';
+import SearchInput from '../search-input/search-input'
 
 
 const Sidebar = () => {
     return ( 
-        <div>
-            
-        </div>
+        <aside className="menu is-narrow-mobile is-fullheight section">
+            <p className="menu-label">Navigation</p>
+                <ul className="menu-list">
+                    <li>
+                        <a> Home </a>
+                    </li>
+                    <li>
+                        <a> Portfolio </a>
+                    </li>
+                    <li>
+                        <a> Watchlist </a>
+                    </li>
+                    <li>
+                        <SearchInput />
+                    </li>
+                </ul>
+        </aside>
      );
 }
  
