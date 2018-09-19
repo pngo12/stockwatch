@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchInput from '../search-input/search-input'
+import {Link} from 'react-router-dom'
 
 
 const Sidebar = () => {
@@ -8,13 +9,13 @@ const Sidebar = () => {
             <p className="menu-label">Navigation</p>
                 <ul className="menu-list">
                     <li>
-                        <a> Home </a>
+                        <Link to='/'>Home</Link>
                     </li>
                     <li>
                         <a> Portfolio </a>
                     </li>
                     <li>
-                        <a> Watchlist </a>
+                        <Link to='/watchlist'>Watchlist</Link>
                     </li>
                     <li>
                         <SearchInput />

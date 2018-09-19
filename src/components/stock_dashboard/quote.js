@@ -5,7 +5,7 @@ class Quote extends Component {
     render() { 
         let quote = this.props.quote
         return (
-            <table className="table is-narrow is-hoverable">
+            <table className="table is-hoverable">
                 <tbody>
                     <tr>
                         <th>Open</th>
@@ -22,7 +22,7 @@ class Quote extends Component {
                     </tr>
                     <tr>
                         <td>${quote.high}</td>
-                        <td>{quote.changePercentage}%</td>
+                        <td>{quote.changePercent}%</td>
                     </tr>
                     <tr>
                         <th>Low</th>

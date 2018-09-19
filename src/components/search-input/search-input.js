@@ -21,7 +21,7 @@ class SearchInput extends Component {
 
     render() {
         return this.props.redirect
-            ? <Redirect to='/dashboard' />
+            ? <Redirect to='/summary' />
             : (
                 <div>
                     <form onSubmit={this.handleSubmit}>
@@ -36,8 +36,8 @@ class SearchInput extends Component {
                     </form>
                 </div>
             );
+        }
     }
-}
 
 const mapStateToProps = state => ({
     redirect: state.redirect

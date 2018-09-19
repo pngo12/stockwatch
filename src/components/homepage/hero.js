@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import Button from '../buttons/button'
 import SearchInput from '../search-input/search-input'
+import {connect} from 'react-redux'
+import {flipBool} from '../../actions'
 
 class HeroHome extends Component {
     state = { 
         showInput: false,
-        hideButton: false
+        showButton: true
      }
      renderInput = () => {
          this.setState({
              showInput: true,
-             hideButton: true
+             showButton: false
          })
      }
+
+     componentDidMount(){
+         this.props.flipBool()
+     }
+
     render() { 
         return ( 
             <section className="hero is-light is-fullheight">
@@ -37,7 +44,7 @@ class HeroHome extends Component {
                         <h1 className="title">Stock Watch</h1>
                             <h2 className="subtitle">Let's get yo data playa</h2>
                         {
-                            !this.state.hideButton && <Button onClick={this.renderInput} text='Get Started' />
+                            this.state.showButton && <Button onClick={this.renderInput} text='Get Started' />
                         }
                         {
                             this.state.showInput && <SearchInput />
@@ -48,5 +55,11 @@ class HeroHome extends Component {
          );
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    flipBool: () => dispatch(flipBool())
+})
+
+
  
-export default HeroHome;
+export default connect(null, mapDispatchToProps)(HeroHome)

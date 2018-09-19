@@ -8,7 +8,8 @@ import {BrowserRouter, Route} from 'react-router-dom'
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './reducer'
-import Dashboard from './components/stock_dashboard/dashboard'
+import Summary from './components/stock_dashboard/summary'
+import WatchListDashboard from './components/watchlist/watchlist-dashboard'
 
 const store = createStore(
     rootReducer,
@@ -22,7 +23,8 @@ ReactDOM.render(
     <BrowserRouter>
     <div>
         <Route path='/' component={App} exact/>
-        <Route path='/dashboard' component={Dashboard}/>
+        <Route path='/summary' component={Summary}/>
+        <Route path='/watchlist' component={WatchListDashboard} />
     </div>
     </BrowserRouter>
 </Provider>,

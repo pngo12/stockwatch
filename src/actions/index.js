@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {RECEIVED_ALL_DATA} from '../constants'
+import {RECEIVED_ALL_DATA, ADD_TO_WATCHLIST, FLIP_BOOL} from '../constants'
 
 export const getData = ticker => dispatch => {
     axios.all([
@@ -17,3 +17,17 @@ export const getData = ticker => dispatch => {
     }))
 }
 
+export const addToWatchlist = ticker => dispatch => {
+    axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/quote`)
+        .then(res => {
+            console.log(res.data)
+            dispatch({
+                type: ADD_TO_WATCHLIST,
+                payload: res.data
+            })
+        })
+    }
+
+export const flipBool = () => dispatch => {
+    dispatch({ type: FLIP_BOOL, payload: false })
+}
