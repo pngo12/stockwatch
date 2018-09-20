@@ -39,7 +39,7 @@ class Summary extends PureComponent {
                     </div>
                     <div className="column is-7 is-fullheight is-pulled-left">
                         <Chart />
-                        <section className="section"></section>
+                        <div className="columns"></div>
                         <Profile />
                     </div>
                     <div className="column is-3 is-fullheight is-pulled-right">

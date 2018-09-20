@@ -11,7 +11,7 @@ class SearchInput extends Component {
 
     onChange = e => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value.toUpperCase()
         })
     }
 
@@ -41,6 +41,11 @@ class SearchInput extends Component {
                             </div>
                         </div>
                         <button className="button" type='submit'>Get Data</button>
+                        {
+                            this.props.error 
+                            ? <p>Sorry we had trouble finding that ticker</p> 
+                            : <span></span>
+                        }
                     </form>
                 </div>
             );
@@ -48,7 +53,8 @@ class SearchInput extends Component {
 }
 
 const mapStateToProps = state => ({
-    redirect: state.redirect
+    redirect: state.redirect,
+    error: state.error
 })
 
 const mapDispatchToProps = dispatch => ({

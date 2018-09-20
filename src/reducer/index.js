@@ -1,4 +1,4 @@
-import { RECEIVED_ALL_DATA, ADD_TO_WATCHLIST, FLIP_BOOL, REMOVE_STOCK_FROM_WATCHLIST } from '../constants'
+import { RECEIVED_ALL_DATA, ADD_TO_WATCHLIST, FLIP_BOOL, REMOVE_STOCK_FROM_WATCHLIST, WRONG_SYMBOL, GET_NEW_CHART_DATE } from '../constants'
 
 const initialState = {
     quote: {},
@@ -7,10 +7,11 @@ const initialState = {
     financials: {},
     peers: '',
     chart: [],
+    watchlist: [],
     isLoading: true,
     redirect: false,
-    watchlist: [],
-    doneLoading: false
+    doneLoading: false,
+    error: false
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -25,8 +26,14 @@ const rootReducer = (state = initialState, action) => {
         case FLIP_BOOL:
             return { ...state, redirect: action.payload }
         case REMOVE_STOCK_FROM_WATCHLIST:
-            console.log(action.payload)
-            return 
+            return {
+                ...state,
+                watchlist: state.watchlist.filter((item,i) => i !== action.payload)
+            }
+        case WRONG_SYMBOL:
+            return {...state, error: true}
+        case GET_NEW_CHART_DATE:
+            return {...state, chart: action.payload}
         default:
             return state
     }

@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 class WatchListDashboard extends Component {
     state = {}
     render() {
-        console.log(this.props.watchlist)
         return (
             <section className="container is-fluid">
                 <div>
@@ -23,13 +22,14 @@ class WatchListDashboard extends Component {
                         <div className="columns is-multiline">
                             
                             {
-                                this.props.watchlist.map((property, i) => {
+                                this.props.watchlist.map((property,index) => {
                                     return (
-                                        <div className="column is-4" key={i}>
+                                        <div className="column is-4" key={index}>
                                             <WatchlistCard
                                                 title={property.companyName}
                                                 symbol={property.symbol}
                                                 latestPrice={property.latestPrice}
+                                                index={index}
                                             />
                                         </div>
                                     )

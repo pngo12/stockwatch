@@ -1,8 +1,20 @@
 import React, { PureComponent } from 'react';
 import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux'
+import {getChartDate} from '../../actions'
 
 class Chart extends PureComponent {
+    state = {
+        range: ''
+    }
+
+    handleOnClick = range => {
+        this.setState({
+            range
+        }, () => this.props.getChartDate(range)
+        )
+    }
+
     render() {
         let data = {
             labels: this.props.chartData.data && this.props.chartData.data.map(arr => arr.minute),
@@ -34,6 +46,13 @@ class Chart extends PureComponent {
         return (
             <div>
                 {this.props.doneLoading && <Line data={data} />}
+                    <div className="buttons has-addons is-pulled-right">
+                    <span className="button" onClick={() =>this.handleOnClick('1d')}>1d</span>
+                    <span className="button" onClick={() => this.handleOnClick('3m')}>3m</span>
+                    <span className="button" onClick={() => this.handleOnClick('6m')}>6m</span>
+                    <span className="button" onClick={() => this.handleOnClick('1y')}>1y</span>
+                    <span className="button" onClick={() => this.handleOnClick('5y')}>5y</span>
+                </div>
             </div>
         );
     }
@@ -44,4 +63,8 @@ const mapStateToProps = state => ({
     chartData: state.chart
 })
 
-export default connect(mapStateToProps, null)(Chart)
+const mapDispatchToProps = dispatch => ({
+    getChartDate: time => dispatch(getChartDate(time))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chart)

@@ -3,16 +3,19 @@ import {connect} from 'react-redux'
 import { removeFromWatchlist } from '../../actions'
 
 const WatchlistCard = props => {
-    return (
+    let index = props.index
+    
+        return (
         <div className="card">
             <div className="card-content">
                 <p className="title">{props.title}</p>
                 <p className="subtitle">{props.symbol}</p>
                 <p className="subtitle">${props.latestPrice}</p>
+                <p hidden>{props.id}</p>
             </div>
-            <footer class="card-footer">
+            <footer className="card-footer">
                 <div className="buttons">
-                    <span onClick={this.props.removeFromWatchlist()} className="button">Remove from wishlist</span>
+                    <span onClick={() => props.removeFromWatchlist(index)} className="button">Remove from wishlist</span>
                     <span className="button">Add to portfolio</span>
                 </div>
             </footer>
@@ -20,33 +23,9 @@ const WatchlistCard = props => {
     );
 }
 
+
 const mapDispatchToProps = dispatch => ({
-    removeFromWatchlist: dispatch(removeFromWatchlist())
+    removeFromWatchlist: index => dispatch(removeFromWatchlist(index))
 })
 
-
-
 export default connect(null, mapDispatchToProps)(WatchlistCard)
-
-// class WatchlistCard extends Component {
-//     state = {  }
-//     render() { 
-//         return ( 
-//             <div className="card">
-//                 <div className="card-content">
-//                     <p className="title">{props.title}</p>
-//                     <p className="subtitle">{props.symbol}</p>
-//                     <p className="subtitle">${props.latestPrice}</p>
-//                 </div>
-//                 <footer class="card-footer">
-//                     <div className="buttons">
-//                         <span className="button">Remove from wishlist</span>
-//                         <span className="button">Add to portfolio</span>
-//                     </div>
-//                 </footer>
-//             </div>
-//          );
-//     }
-// }
- 
-// export default connect(mapDispatchToProps, null)(WatchListCard)
