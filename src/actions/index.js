@@ -20,7 +20,6 @@ export const getData = ticker => dispatch => {
 export const addToWatchlist = ticker => dispatch => {
     axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/quote`)
         .then(res => {
-            console.log(res.data)
             dispatch({
                 type: ADD_TO_WATCHLIST,
                 payload: res.data

@@ -1,4 +1,4 @@
-import {RECEIVED_ALL_DATA, ADD_TO_WATCHLIST, FLIP_BOOL} from '../constants'
+import { RECEIVED_ALL_DATA, ADD_TO_WATCHLIST, FLIP_BOOL } from '../constants'
 
 const initialState = {
     quote: {},
@@ -9,7 +9,7 @@ const initialState = {
     chart: [],
     isLoading: true,
     redirect: false,
-    watchList: [],
+    watchlist: [],
     doneLoading: false
 }
 
@@ -18,11 +18,12 @@ const rootReducer = (state = initialState, action) => {
         case RECEIVED_ALL_DATA:
             return { ...state, ...action.payload, redirect: true, doneLoading: true }
         case ADD_TO_WATCHLIST:
-            return {...state, 
-            watchList: [...state.watchList, action.payload]
+            return {
+                ...state,
+                watchlist: [...state.watchlist, action.payload]
             }
         case FLIP_BOOL:
-        return {...state, redirect: action.payload}
+            return { ...state, redirect: action.payload }
         default:
             return state
     }
