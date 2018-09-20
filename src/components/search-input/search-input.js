@@ -36,12 +36,16 @@ class SearchInput extends Component {
                             type="text"
                             placeholder="Example: AAPL"
                         />
-                        <button className="button" type='submit'> Get Data </button>
+                        <div className="field is-horizontal">
+                            <div className="field-label">
+                            </div>
+                        </div>
+                        <button className="button" type='submit'>Get Data</button>
                     </form>
                 </div>
             );
-        }
     }
+}
 
 const mapStateToProps = state => ({
     redirect: state.redirect

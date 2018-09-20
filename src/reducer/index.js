@@ -1,4 +1,4 @@
-import { RECEIVED_ALL_DATA, ADD_TO_WATCHLIST, FLIP_BOOL } from '../constants'
+import { RECEIVED_ALL_DATA, ADD_TO_WATCHLIST, FLIP_BOOL, REMOVE_STOCK_FROM_WATCHLIST } from '../constants'
 
 const initialState = {
     quote: {},
@@ -24,6 +24,9 @@ const rootReducer = (state = initialState, action) => {
             }
         case FLIP_BOOL:
             return { ...state, redirect: action.payload }
+        case REMOVE_STOCK_FROM_WATCHLIST:
+            console.log(action.payload)
+            return 
         default:
             return state
     }

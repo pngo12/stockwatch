@@ -4,7 +4,6 @@ import Chart from './chart'
 import Profile from './profile'
 import Quote from './quote'
 import Sidebar from '../sidebar/sidebar'
-import Button from '../buttons/button'
 import { addToWatchlist, getData } from '../../actions'
 
 
@@ -26,13 +25,9 @@ class Summary extends PureComponent {
                             <p className="title">{this.props.quote.companyName} ({this.props.quote.symbol})</p>
                             <span className="is inline-flex">
                                 <p className="subtitle">${this.props.quote.latestPrice}</p>
-                                <div className="columns">
-                                    <div className="column is-2">
-                                        <Button onClick={this.handleOnClick} text="Add to watchlist" />
-                                    </div>
-                                    <div className="column is-2 is-pulled-left">
-                                        <Button text="Add to portfolio" />
-                                    </div>
+                                <div className="buttons">
+                                    <span className="button" onClick={this.handleOnClick}>Add to watchlist</span>
+                                    <span className="button">Add to portfolio</span>
                                 </div>
                             </span>
                         </section>
@@ -44,6 +39,7 @@ class Summary extends PureComponent {
                     </div>
                     <div className="column is-7 is-fullheight is-pulled-left">
                         <Chart />
+                        <section className="section"></section>
                         <Profile />
                     </div>
                     <div className="column is-3 is-fullheight is-pulled-right">

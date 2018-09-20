@@ -27,9 +27,9 @@ class WatchListDashboard extends Component {
                                     return (
                                         <div className="column is-4" key={i}>
                                             <WatchlistCard
-                                                title={this.props.watchlist.companyName}
-                                                symbol={this.props.watchlist.symbol}
-                                                latestPrice={this.props.watchlist.latestPrice}
+                                                title={property.companyName}
+                                                symbol={property.symbol}
+                                                latestPrice={property.latestPrice}
                                             />
                                         </div>
                                     )
