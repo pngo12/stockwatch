@@ -6,6 +6,7 @@ import { getData } from '../../actions'
 class SearchInput extends Component {
     state = {
         ticker: '',
+        click: false
     }
 
     onChange = e => {
@@ -17,11 +18,14 @@ class SearchInput extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.getData(this.state.ticker)
+        this.setState({
+            click: true,
+        })
     }
 
     render() {
-        return this.props.redirect
-            ? <Redirect to='/summary' />
+        return this.state.click && this.props.redirect
+            ? <Redirect to={`/summary/${this.state.ticker}`} />
             : (
                 <div>
                     <form onSubmit={this.handleSubmit}>

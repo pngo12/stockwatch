@@ -9,13 +9,14 @@ const initialState = {
     chart: [],
     isLoading: true,
     redirect: false,
-    watchList: []
+    watchList: [],
+    doneLoading: false
 }
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case RECEIVED_ALL_DATA:
-            return { ...state, ...action.payload, redirect: true, }
+            return { ...state, ...action.payload, redirect: true, doneLoading: true }
         case ADD_TO_WATCHLIST:
             return {...state, 
             watchList: [...state.watchList, action.payload]

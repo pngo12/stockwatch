@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {connect} from 'react-redux'
 
-class Profile extends Component {
+class Profile extends PureComponent {
     render() { 
     let company = this.props.company
         return (
@@ -11,6 +11,7 @@ class Profile extends Component {
                     <p>{company.description}</p>
             </section>
             <table className="table is-narrow is-hoverable">
+            <tbody>
                 <tr>
                     <th>Exchange</th>
                     <th>CEO</th>
@@ -31,8 +32,9 @@ class Profile extends Component {
                     <th>Website</th>
                 </tr>
                 <tr>
-                    <td><a href={company.website}/> </td>
+                    <td><a href={company.website}>{company.website}</a> </td>
                 </tr>
+                </tbody>
             </table>
         </div>
          );

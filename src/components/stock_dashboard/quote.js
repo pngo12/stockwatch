@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {connect} from 'react-redux'
 
-class Quote extends Component {
+class Quote extends PureComponent {
     render() { 
         let quote = this.props.quote
         return (

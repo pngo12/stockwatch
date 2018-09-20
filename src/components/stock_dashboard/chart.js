@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import {Line} from 'react-chartjs-2'
-import {connect} from 'react-redux'
+import React, { PureComponent } from 'react';
+import { Line } from 'react-chartjs-2'
+import { connect } from 'react-redux'
 
-class Chart extends Component {
-    state = {
-         data: {
-             labels: this.props.chartData.data.map(arr => arr.minute),
+class Chart extends PureComponent {
+    render() {
+        let data = {
+            labels: this.props.chartData.data && this.props.chartData.data.map(arr => arr.minute),
             datasets: [
                 {
                     label: 'Daily Prices',
@@ -26,23 +26,22 @@ class Chart extends Component {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: this.props.chartData.data.map(arr => arr.high)
+                    data: this.props.chartData.data && this.props.chartData.data.map(arr => arr.high)
                 },
-            ],
-        },
-    }
+            ]
+        }
 
-    render() {
-        return ( 
+        return (
             <div>
-                <Line data={this.state.data}/>
+                {this.props.doneLoading && <Line data={data} />}
             </div>
-         );
+        );
     }
 }
 
 const mapStateToProps = state => ({
+    doneLoading: state.doneLoading,
     chartData: state.chart
 })
- 
+
 export default connect(mapStateToProps, null)(Chart)

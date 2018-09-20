@@ -1,18 +1,24 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {connect} from 'react-redux'
 import Chart from './chart'
 import Profile from './profile'
 import Quote from './quote'
 import Sidebar from '../sidebar/sidebar'
 import Button from '../buttons/button'
-import {addToWatchlist} from '../../actions'
+import {addToWatchlist, getData} from '../../actions'
 
-class Summary extends Component {
 
+class Summary extends PureComponent {
     handleOnClick = () => {
         this.props.addToWatchlist(this.props.quote.symbol)
     }
-
+    
+    componentDidMount(){
+        let symbol = this.props.match.params.id
+        console.log(symbol)
+        this.props.getData(symbol)
+    }
+    
     render() {
         return ( 
             <section className="container is-fluid">
@@ -20,11 +26,11 @@ class Summary extends Component {
                 <div className="column is-10 is-offset-2">
                         <section className="section">
                             <p className="title">{this.props.quote.companyName} ({this.props.quote.symbol})</p>
-                            <p className="">${this.props.quote.latestPrice}
-                                <Button onClick={this.handleOnClick} text="Add to watchlist" />  
+                            <span className="is inline-flex">
+                                <p className="subtitle">${this.props.quote.latestPrice}</p>
+                                <Button onClick={this.handleOnClick} text="Add to watchlist" />
                                     <Button text="Add to portfolio" />
-                                </p>
-
+                            </span>
                         </section>
                 </div>
             </div>
@@ -51,7 +57,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    addToWatchlist: ticker => dispatch(addToWatchlist(ticker))
+    addToWatchlist: ticker => dispatch(addToWatchlist(ticker)),
+    getData: symbol => dispatch(getData(symbol))
 })
 
 

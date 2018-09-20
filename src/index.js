@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './reducer'
@@ -21,11 +21,11 @@ ReactDOM.render(
 
 <Provider store={store}>
     <BrowserRouter>
-    <div>
+    <Switch>
         <Route path='/' component={App} exact/>
-        <Route path='/summary' component={Summary}/>
+        <Route path='/summary/:id' component={Summary}/>
         <Route path='/watchlist' component={WatchListDashboard} />
-    </div>
+    </Switch>
     </BrowserRouter>
 </Provider>,
 
