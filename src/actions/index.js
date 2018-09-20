@@ -16,7 +16,7 @@ export const getData = ticker => dispatch => {
             })
         }))
         .catch(err => {
-            dispatch({ type: WRONG_SYMBOL, payload: err.response})
+            dispatch({ type: WRONG_SYMBOL, payload: err.response })
         })
 }
 
@@ -35,7 +35,7 @@ export const removeFromWatchlist = id => dispatch => {
 }
 
 export const flipBool = () => dispatch => {
-    dispatch({ type: FLIP_BOOL, payload: false })
+    dispatch({ type: FLIP_BOOL, payload: false})
 }
 
 export const getChartDate = range => dispatch => {

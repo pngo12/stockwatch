@@ -16,9 +16,9 @@ class HeroHome extends Component {
         })
     }
 
-    componentDidMount() {
-        this.props.flipBool()
-    }
+    // componentDidMount() {
+    //     this.props.flipBool()
+    // }
 
     render() {
         return (
@@ -27,9 +27,9 @@ class HeroHome extends Component {
                     <header className="navbar">
                         <div className="container">
                             <div className="navbar-brand">
-                                <a className="navbar-item">
+                                {/* <a className="navbar-item">
                                     <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
-                                </a>
+                                </a> */}
                             </div>
                             <div className="navbar-end">
                                 <a className="navbar-item">Home</a>

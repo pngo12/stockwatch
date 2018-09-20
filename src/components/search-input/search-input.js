@@ -18,12 +18,11 @@ class SearchInput extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.getData(this.state.ticker)
-        this.setState({
-            click: true,
-        })
+        this.setState({click: !this.state.click})
     }
 
     render() {
+        // return (
         return this.state.click && this.props.redirect
             ? <Redirect to={`/summary/${this.state.ticker}`} />
             : (

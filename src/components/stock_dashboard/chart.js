@@ -7,7 +7,7 @@ class Chart extends PureComponent {
     state = {
         range: ''
     }
-
+    
     handleOnClick = range => {
         this.setState({
             range
@@ -15,9 +15,37 @@ class Chart extends PureComponent {
         )
     }
 
+    // checkDateSelected = range => {
+    //     switch(range){
+    //         case '1m':
+    //             return this.props.chartData.data && this.props.chartData.data.map(arr => arr.label)
+    //         case '3m':
+    //             return this.props.chartData.data && this.props.chartData.data.map(arr => arr.label)
+    //         case '6m':
+    //             return this.props.chartData.data && this.props.chartData.data.map(arr => arr.label)
+    //         case '1y':
+    //             return this.props.chartData.data && this.props.chartData.data.map(arr => arr.label)
+    //         case '5y':
+    //             return this.props.chartData.data && this.props.chartData.data.map(arr => arr.label)
+    //         default:
+    //             return this.props.chartData.data && this.props.chartData.data.map(arr => arr.minute)
+    //     }
+    // }
+    // checkDateSelected = range => {
+    //     if (range === '1m' || range === '3m' || range === '6m' || range === '1y' || range === '5y'){
+    //         return this.props.chartData.data && this.props.chartData.data.map(arr => arr.close)
+            
+    //     } else return this.props.chartData.data && this.props.chartData.data.map(arr => arr.average)
+    // }
+
+    checkDateSelected = range => {
+        if (range === '1m' || range === '3m' || range === '6m' || range === '1y' || range === '5y'){
+            console.log(this.props.chartData.data && this.props.chartData.data.map(arr => arr.close))
+        } console.log(this.props.chartData.data && this.props.chartData.data.map(arr => arr.average))
+    }
     render() {
         let data = {
-            labels: this.props.chartData.data && this.props.chartData.data.map(arr => arr.minute),
+            labels: this.props.chartData.data && this.props.chartData.data.map(arr => arr.label),
             datasets: [
                 {
                     label: 'Daily Prices',
@@ -38,16 +66,16 @@ class Chart extends PureComponent {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: this.props.chartData.data && this.props.chartData.data.map(arr => arr.high)
+                    // data: this.checkDateSelected(this.state.range)
+                    data: this.props.chartData.data && this.props.chartData.data.map(arr => arr.average)
                 },
             ]
         }
-
         return (
             <div>
                 {this.props.doneLoading && <Line data={data} />}
                     <div className="buttons has-addons is-pulled-right">
-                    <span className="button" onClick={() =>this.handleOnClick('1d')}>1d</span>
+                    <span className="button" onClick={() => this.handleOnClick('1m')}>1m</span>
                     <span className="button" onClick={() => this.handleOnClick('3m')}>3m</span>
                     <span className="button" onClick={() => this.handleOnClick('6m')}>6m</span>
                     <span className="button" onClick={() => this.handleOnClick('1y')}>1y</span>

@@ -17,14 +17,14 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case RECEIVED_ALL_DATA:
-            return { ...state, ...action.payload, redirect: true, doneLoading: true }
+            return { ...state, ...action.payload, redirect: true, doneLoading: true, error: false }
         case ADD_TO_WATCHLIST:
             return {
                 ...state,
                 watchlist: [...state.watchlist, action.payload]
             }
         case FLIP_BOOL:
-            return { ...state, redirect: action.payload }
+            return { ...state, redirect: action.payload, }
         case REMOVE_STOCK_FROM_WATCHLIST:
             return {
                 ...state,
