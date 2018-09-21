@@ -5,32 +5,57 @@ import {getChartDate} from '../../actions'
 
 class Chart extends PureComponent {
     state = {
-        range: ''
+        range: '',
+        ticker: this.props.ticker,
+        threeMonth:'',
+        sixMonth:'',
+        oneYear: '',
+        fiveYear: ''
     }
     
     handleOnClick = range => {
         this.setState({
-            range
-        }, () => this.props.getChartDate(range))
+            range }, 
+            () => this.props.getChartDate(this.state.range, this.state.ticker))
     }
+
+    componentDidUpdate() {
+            this.setState({
+                ticker: this.props.ticker,
+                threeMonth: this.props.chartData,
+                sixMonth: '',
+                oneYear: '',
+                fiveYear: ''
+            })
+        }
+
 
     // checkDateSelected = range => {
     //     if (range === '1m' || range === '3m' || range === '6m' || range === '1y' || range === '5y'){
     //         return this.props.chartData.data && this.props.chartData.data.map(arr => arr.close)
     //     } else return this.props.chartData.data && this.props.chartData.data.map(arr => arr.average)
     // }
-    componentDidMount(){
-        console.log(this.props.chartData && this.props.chartData.map(arr => arr.label))
-    }
+
+    // componentDidUpdate(){
+    //    let range = this.state.range
+    //     if (range === '1m' || range === '3m' || range === '6m' || range === '1y' || range === '5y') {
+    //         return this.props.chartData && this.props.chartData.map(arr => arr.close)
+    //     } return this.props.chartData && this.props.chartData.map(arr => arr.average)
+    // }
+
+    // componentDidUpdate(){
+    //     this.props.getChartData()
+    // }
+
     checkDateSelected = range => {
         if (range === '1m' || range === '3m' || range === '6m' || range === '1y' || range === '5y'){
-            console.log(this.props.chartData.data && this.props.chartData.data.map(arr => arr.close))
-        } console.log(this.props.chartData.data && this.props.chartData.data.map(arr => arr.average))
+            console.log(this.props.chartData && this.props.chartData.map(arr => arr.close))
+        } console.log(this.props.chartData && this.props.chartData.map(arr => arr.average))
     }
+
     render() {
-        
         let data = {
-            // labels: [1,2,3,5,6,7],
+            // labels: this.checkDateSelected(this.state.range),
             labels: this.props.chartData && this.props.chartData.map(arr => arr.label),
             datasets: [
                 {
@@ -52,21 +77,21 @@ class Chart extends PureComponent {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    // data: this.checkDateSelected(this.state.range)
-                    // data: [10,20,30,50,100,1,5]
                     data: this.props.chartData && this.props.chartData.map(arr => arr.average)
                 },
             ]
         }
         return (
             <div>
-                {this.props.doneLoading && <Line data={data} />}
+                {this.props.chartData && <Line data={data} />}
+
                     <div className="buttons has-addons is-pulled-right">
                     <span className="button" onClick={() => this.handleOnClick('1m')}>1m</span>
                     <span className="button" onClick={() => this.handleOnClick('3m')}>3m</span>
                     <span className="button" onClick={() => this.handleOnClick('6m')}>6m</span>
                     <span className="button" onClick={() => this.handleOnClick('1y')}>1y</span>
                     <span className="button" onClick={() => this.handleOnClick('5y')}>5y</span>
+
                 </div>
             </div>
         );
@@ -75,11 +100,12 @@ class Chart extends PureComponent {
 
 const mapStateToProps = state => ({
     doneLoading: state.doneLoading,
-    chartData: state.chart
+    chartData: state.chart,
+    ticker: state.ticker
 })
 
 const mapDispatchToProps = dispatch => ({
-    getChartDate: time => dispatch(getChartDate(time))
+    getChartDate: (range,ticker) => dispatch(getChartDate(range,ticker))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chart)

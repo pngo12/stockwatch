@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../buttons/button'
 import SearchInput from '../search-input/search-input'
-import { connect } from 'react-redux'
-import { flipBool } from '../../actions'
 
 class HeroHome extends Component {
     state = {
@@ -15,10 +13,6 @@ class HeroHome extends Component {
             showButton: false
         })
     }
-
-    // componentDidMount() {
-    //     this.props.flipBool()
-    // }
     
     render() {
         return (
@@ -64,9 +58,4 @@ class HeroHome extends Component {
     }
 }
 
-// const mapDispatchToProps = dispatch => ({
-//     flipBool: () => dispatch(flipBool())
-// })
-
-// export default connect(null, mapDispatchToProps)(HeroHome)
 export default HeroHome
