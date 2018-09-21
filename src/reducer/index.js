@@ -23,8 +23,8 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 watchlist: [...state.watchlist, action.payload]
             }
-        case FLIP_BOOL:
-            return { ...state, redirect: action.payload, }
+        // case FLIP_BOOL:
+        //     return { ...state, redirect: action.payload, }
         case REMOVE_STOCK_FROM_WATCHLIST:
             return {
                 ...state,

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getData } from '../../actions'
 
 class SearchInput extends Component {
     state = {
         ticker: '',
-        click: false
+        click: false,
     }
 
     onChange = e => {
@@ -15,39 +15,34 @@ class SearchInput extends Component {
         })
     }
 
-    handleSubmit = e => {
-        e.preventDefault();
+    handleSubmit = () => {
         this.props.getData(this.state.ticker)
-        this.setState({click: !this.state.click})
+
     }
 
     render() {
-        // return (
-        return this.state.click && this.props.redirect
-            ? <Redirect to={`/summary/${this.state.ticker}`} />
-            : (
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <input name="ticker"
-                            onChange={this.onChange}
-                            value={this.state.name}
-                            className="input is-hovered"
-                            type="text"
-                            placeholder="Example: AAPL"
-                        />
-                        <div className="field is-horizontal">
-                            <div className="field-label">
-                            </div>
-                        </div>
-                        <button className="button" type='submit'>Get Data</button>
-                        {
-                            this.props.error 
-                            ? <p>Sorry we had trouble finding that ticker</p> 
-                            : <span></span>
-                        }
-                    </form>
+        return (
+            <div>
+                <input name="ticker"
+                    onChange={this.onChange}
+                    value={this.state.name}
+                    className="input is-hovered"
+                    type="text"
+                    placeholder="Example: AAPL"
+                />
+                <div className="field is-horizontal">
+                    <div className="field-label">
+                    </div>
                 </div>
-            );
+                <Link to={`/summary/${this.state.ticker}`} type="submit" className="button" onClick={this.handleSubmit} >Get Data</Link>
+                {
+                    this.props.error
+                        ? <p>Sorry we had trouble finding that ticker</p>
+                        : <span></span>
+                }
+            </div>
+            // );
+        )
     }
 }
 

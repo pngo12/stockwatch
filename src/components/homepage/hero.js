@@ -19,7 +19,7 @@ class HeroHome extends Component {
     // componentDidMount() {
     //     this.props.flipBool()
     // }
-
+    
     render() {
         return (
             <section className="hero is-light is-fullheight">
@@ -64,10 +64,9 @@ class HeroHome extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    flipBool: () => dispatch(flipBool())
-})
+// const mapDispatchToProps = dispatch => ({
+//     flipBool: () => dispatch(flipBool())
+// })
 
-
-
-export default connect(null, mapDispatchToProps)(HeroHome)
+// export default connect(null, mapDispatchToProps)(HeroHome)
+export default HeroHome

@@ -7,7 +7,7 @@ export const getData = ticker => dispatch => {
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/company`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/earnings`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/peers`),
-        axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/dynamic`)
+        axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/1d`)
     ])
         .then(axios.spread((quote, company, earnings, peers, chart) => {
             dispatch({
@@ -34,9 +34,9 @@ export const removeFromWatchlist = id => dispatch => {
     dispatch({ type: REMOVE_STOCK_FROM_WATCHLIST, payload: id })
 }
 
-export const flipBool = () => dispatch => {
-    dispatch({ type: FLIP_BOOL, payload: false})
-}
+// export const flipBool = () => dispatch => {
+//     dispatch({ type: FLIP_BOOL, payload: false})
+// }
 
 export const getChartDate = range => dispatch => {
     axios.get(`https://api.iextrading.com/1.0/stock/aapl/chart/${range}`)
