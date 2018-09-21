@@ -15,9 +15,10 @@ export const getData = ticker => dispatch => {
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/earnings`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/peers`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/1d`),
+        axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/news`),
 
     ])
-        .then(axios.spread((quote, company, earnings, peers, chart) => {
+        .then(axios.spread((quote, company, earnings, peers, chart, news) => {
             dispatch({
                 type: RECEIVED_ALL_DATA,
                 payload: {
@@ -27,6 +28,7 @@ export const getData = ticker => dispatch => {
                     peers: peers.data,
                     chart: chart.data,
                     ticker: quote.data.symbol,
+                    news: news.data
                 }
             })
         }))
@@ -43,7 +45,7 @@ export const addToWatchlist = ticker => dispatch => {
                 payload: res.data
             })
         })
-}
+    }
 
 export const removeFromWatchlist = id => dispatch => {
     dispatch({ type: REMOVE_STOCK_FROM_WATCHLIST, payload: id })

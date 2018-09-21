@@ -13,6 +13,7 @@ const initialState = {
     quote: {},
     company: {},
     earnings: {},
+    news: [],
     peers: '',
     chart: [],
     otherChart: [],

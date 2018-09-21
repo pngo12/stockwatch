@@ -4,7 +4,6 @@ import WatchlistCard from '../watchlist/watchlist-card'
 import { connect } from 'react-redux'
 
 class WatchListDashboard extends Component {
-    state = {}
     render() {
         return (
             <section className="container is-fluid">
@@ -20,20 +19,18 @@ class WatchListDashboard extends Component {
                     <div className="column is-1"></div>
                     <div className="column is-8 is-fullheight inline-flex">
                         <div className="columns is-multiline">
-                            
                             {
-                                this.props.watchlist.map((property,index) => {
-                                    return (
-                                        <div className="column is-4" key={index}>
-                                            <WatchlistCard
-                                                title={property.companyName}
-                                                symbol={property.symbol}
-                                                latestPrice={property.latestPrice}
-                                                index={index}
-                                            />
-                                        </div>
-                                    )
-                                })
+                            this.props.watchlist.map((property,index) => {
+                                return (
+                                    <div className="column is-4" key={index}>
+                                        <WatchlistCard
+                                            title={property.companyName}
+                                            symbol={property.symbol}
+                                            latestPrice={property.latestPrice}
+                                            index={index}
+                                        />
+                                    </div>
+                                )})
                             }
                         </div>
                     </div>
