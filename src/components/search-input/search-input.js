@@ -28,6 +28,7 @@ class SearchInput extends Component {
                     type="text"
                     placeholder="Example: AAPL"
                     onKeyDown={this.keyDown}
+                    
                 />
                 <div className="field is-horizontal">
                     <div className="field-label">

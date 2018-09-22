@@ -10,50 +10,58 @@ class Quote extends PureComponent {
                     <tr>
                         <th>Open</th>
                         <th>Change</th>
+                        <th>Volume</th>
                     </tr>
                     <tr>
                         <td>${quote.open}</td>
                         <td>${quote.change}</td>
-                        
+                        <td>{quote.latestVolume}</td>
+                    </tr>
+                    <tr>
+                        <th>Prev Close</th>
+                        <th>Change %</th>
+                        <th>Avg Volume</th>
+                    </tr>
+                    <tr>
+                        <td>${quote.previousClose}</td>
+                        <td>{quote.changePercent}%</td>
+                        <td>{quote.avgTotalVolume}</td>
                     </tr>
                     <tr>
                         <th>High</th>
-                        <th>Change Percentage</th>
+                        <th>Price/Earnings</th>
+                        <th>Mkt Cap</th>
                     </tr>
                     <tr>
-                        <td>${quote.high}</td>
-                        <td>{quote.changePercent}%</td>
-                    </tr>
-                    <tr>
-                        <th>Low</th>
-                        <th>Volume</th>
-                    </tr>
-                    <tr>
-                        <td>${quote.low}</td>
-                        <td>{quote.iexVolume}</td>
-                    </tr>
-                    <tr>
-                        <th>52 Week High</th>
-                        <th>Market Cap</th>
-                    </tr>
-                    <tr>
-                        <td>${quote.week52High}</td>
+                        <td>${quote.High}</td>
+                        <td>{quote.peRatio}</td>
                         <td>{quote.marketCap}</td>
                     </tr>
                     <tr>
-                        <th>52 Week High</th>
-                        <th>Price/Earnings Ratio</th>
+                        <th>Low</th>
+                        <th>Bid Price</th>
+                        <th>Mkt Cap %</th>
                     </tr>
                     <tr>
-                        <td>${quote.week52High}</td>
-                        <td>{quote.peRatio}</td>
+                        <td>${quote.low}</td>
+                        <td>{quote.iexBidPrice}</td>
+                        {/* Probably isn't market cap below */}
+                        <td>{quote.iexMarketPercent}</td>
                     </tr>
                     <tr>
-                        <th>52 Week High</th>
+                        <th>Ask Price</th>
+                        <th>YTD Change</th>
+                    </tr>
+                    <tr>
+                        <td>${quote.iexAskPrice}</td>
+                        <td>{quote.ytdChange}</td>
+                    </tr>
+                    <tr>
+                        <th>52 Week Low</th>
                         <th>Market Cap</th>
                     </tr>
                     <tr>
-                        <td>${quote.week52High}</td>
+                        <td>${quote.week52Low}</td>
                         <td>{quote.marketCap}</td>
                     </tr>
                 </tbody>
