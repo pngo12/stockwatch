@@ -55,7 +55,6 @@ export const removeFromWatchlist = id => dispatch => {
         dispatch({type: IS_LOADING})
             axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/${range}`)
         .then (res => {
-            console.log(res.data)
             dispatch({type: GET_DATA, payload: res.data})
         })
     }

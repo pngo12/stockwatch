@@ -6,7 +6,9 @@ const PriceCard = props => {
     return ( 
     <div>
         <p className="title">{props.companyName}</p>
-            <p className="subtitle">{props.symbol} <br /> ${props.latestPrice}</p>
+            <br />
+            <p className="subtitle">{props.symbol}</p>
+            <p className="subtitle"> ${props.latestPrice}</p>
     </div>
      );
 }

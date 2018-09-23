@@ -9,6 +9,7 @@ class Chart extends PureComponent {
         range: '',
     }
     
+    // Takes in the data range for the chart and fetches data from API
     handleOnClick = range => {
         this.setState({
             range }, 
@@ -40,12 +41,24 @@ class Chart extends PureComponent {
                     pointHitRadius: 10,
                     data: this.props.chartData.map(arr => arr.high)
                 },
-            ]
+            ],
+            options: {
+                displayLegend: false
+            }
         }
 
         return (
             <div>
-                {this.props.isLoading ? <img src={loading} /> : <Line data={data} />}
+                {this.props.isLoading 
+                ? <img src={loading} /> 
+                : <Line 
+                width={500}
+                height={500}
+                options={{
+                    maintainAspectRatio: false
+                }}
+                
+                data={data} />}
 
                     <div className="buttons has-addons is-pulled-right">
                     <span className="button" onClick={() => this.handleOnClick('1d')}>1d</span>

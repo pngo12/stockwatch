@@ -16,11 +16,13 @@ class Dashboard extends PureComponent {
         sidebarVisibility: false
     }
     
+    //Handles fetching data from API
     handleOnClick = () => {
         this.props.addToWatchlist(this.props.quote.symbol)
         this.setState({ clicked: true })
     }
-    
+
+    // If link is sent with stock appended to URL, data will fetch upon page load
     componentDidMount() {
         this.props.getData(this.props.match.params.id)
     }
@@ -51,20 +53,20 @@ class Dashboard extends PureComponent {
 
 
         <section className="section is-marginless is-paddingless">
-        <SearchInput />
+                    <SearchInput />
             <div className="columns">
-                <div className="column is-fullheight container is-fluid">
+                    <div className="column is-1 is-marginless is-narrow is-fullheight is-fluid box" id="sideColumn">
                 <Sidebar 
                 handleMouseDown={this.handleMouseDown}
                 sidebarVisibility={this.state.sidebarVisibility}
                 />
-                <a onMouseUp={this.handleMouseDown}><i className="fas fa-arrow-right fa-2x"></i></a>
+                <a onMouseUp={this.handleMouseDown}><i id="rightArrow" className="fas fa-arrow-right fa-2x"></i></a>
                 </div>
                     <section>
                         <div className="column is-11 is-fullheight">
                             <div className="tile is-ancestor">
-                                <div className="tile is-4 is-vertical is-parent">
-                                    <div className="tile is-child box">
+                                <div className="level tile is-4 is-vertical is-parent">
+                                    <div className="level-item tile is-child box">
                                         <PriceCard 
                                         companyName={this.props.quote.companyName} 
                                         symbol={this.props.quote.symbol} 
@@ -98,7 +100,9 @@ class Dashboard extends PureComponent {
                         <div className="tile is-parent is-vertical is-8">
                             <div className="tile is-child box">
                                 <p className="title">Price History</p>
-                                <Chart />
+                                <Chart 
+                                
+                                />
                             </div>
                             <div className="tile is-child box">
                             <p className="title">Summary</p>

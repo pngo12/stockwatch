@@ -5,7 +5,8 @@ import { getData } from '../../actions'
 
 class SearchInput extends Component {
     state = {
-        ticker: ''
+        ticker: '',
+        // homepage: true,
     }
 
     onChange = e => {
@@ -14,7 +15,9 @@ class SearchInput extends Component {
         })
     }
 
-    handleSubmit = () => this.props.getData(this.state.ticker)
+    handleSubmit = () => {
+        this.props.getData(this.state.ticker)
+    }
 
     keyDown = e => {   
         e.stopPropagation()
@@ -23,30 +26,27 @@ class SearchInput extends Component {
 
     render() {
         return (
-            <div>
-                <input name="ticker"
-                    onChange={this.onChange}
-                    value={this.state.name}
-                    className="input is-hovered"
-                    type="text"
-                    placeholder="Example: AAPL"
-                    onKeyDown={this.keyDown}
-                />
-                <div className="field is-horizontal">
-                    <div className="field-label">
-                    </div>
-                </div>
-                {/* <Link to={`/summary/${this.state.ticker}`} 
-                    type="submit" 
-                    className="button" 
-                    onKeyDown={this.keyDown} 
-                    onClick={this.handleSubmit}> 
-                    Get Data </Link>
-                {
-                    this.props.error
-                        ? <p>Sorry we had trouble finding that ticker</p>
-                        : <span></span>
-                } */}
+            <div className="box">
+                    <input name="ticker"
+                        onChange={this.onChange}
+                        value={this.state.name}
+                        className="input is-hovered"
+                        id="dashboardInput"
+                        type="text"
+                        placeholder="Example: AAPL"
+                        onKeyDown={this.keyDown}
+                    />
+                    <Link to={`/dashboard/${this.state.ticker}`} 
+                        type="submit" 
+                        className="button" 
+                        onKeyDown={this.keyDown} 
+                        onClick={this.handleSubmit}> 
+                        Get Data </Link>
+                    {
+                        this.props.error
+                            ? <p>Sorry we had trouble finding that ticker</p>
+                            : <span></span>
+                    }
             </div>
         )
     }
