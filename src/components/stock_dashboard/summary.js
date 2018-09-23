@@ -12,7 +12,8 @@ import Peers from '../peers/peers'
 
 class Summary extends PureComponent {
     state = {
-        clicked: false
+        clicked: false,
+        sidebarVisibility: false
     }
     
     handleOnClick = () => {
@@ -24,6 +25,18 @@ class Summary extends PureComponent {
     
     componentDidMount() {
         this.props.getData(this.props.match.params.id)
+    }
+
+    toggleSidebar = () => {
+        this.setState({
+            sidebarVisibility: !this.state.sidebarVisibility
+        })
+    }
+
+    handleMouseDown = e => {
+        this.toggleSidebar()
+        e.stopPropagation()
+
     }
 
     render() {
@@ -68,12 +81,6 @@ class Summary extends PureComponent {
             //                         </div>
             //                     )})
             //              }   
-            //             <News 
-            //             imageUrl={this.props.image}
-            //             headline={this.props.headline}
-            //             summary={this.props.summary}
-            //             url={this.props.url}
-            //             />
             //         </div>
             //         <div className="column is-3 is-fullheight is-pulled-right">
             //             <Quote />
@@ -84,7 +91,11 @@ class Summary extends PureComponent {
 
             <div className="columns">
                 <div className="column is-fullheight container is-fluid">
-                    <a href="#"><i className="fas fa-bars fa-2x"></i></a>
+                <Sidebar 
+                handleMouseDown={this.handleMouseDown}
+                sidebarVisibility={this.state.sidebarVisibility}
+                />
+                    <a onMouseDown={this.handleMouseDown}><i className="fas fa-arrow-right fa-2x"></i></a>
                 </div>
                     <section className="is-large">
                         <div className="column is-11 is-fullheight">
@@ -113,11 +124,11 @@ class Summary extends PureComponent {
 
                                 {this.props.peers.map((peers,i) => {
                                     return (
-                                        <div className="" key={i}>
+                                        <span className="inline" key={i}>
                                         <Peers 
                                         peers={peers}
                                         />
-                                        </div>
+                                        </span>
                                     )
                                 })}
 
@@ -135,7 +146,7 @@ class Summary extends PureComponent {
                             <div className="tile is-child box">
                                 <p className="title">Six</p>
                                     <Quote />
-                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

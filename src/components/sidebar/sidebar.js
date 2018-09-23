@@ -1,22 +1,25 @@
-import React from 'react';
-import SearchInput from '../search-input/search-input'
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
+import './sidebar.css'
 
-
-const Sidebar = () => {
-    return ( 
-        <aside className="menu is-narrow-mobile is-fullheight section">
-            <p className="menu-label">Navigation</p>
-                <ul className="menu-list">
-                    <li>
-                        <Link to='/'>Home</Link>
-                    </li>
-                    <li>
-                        <Link to='/watchlist'>Watchlist</Link>
-                    </li>
+class Sidebar extends Component {
+    render() { 
+        let visibility = 'hide'
+        if(this.props.sidebarVisibility){
+            visibility = 'show'
+        }
+        return ( 
+            <div id="hiddenMenu"
+            onMouseUp={this.props.handleMouseDown}
+            className={visibility}>
+                <i className="fas fa-arrow-left fa-2x"></i>
+                <ul>
+                    <li><Link to='/'>Home</Link> </li>
+                    <li><Link to='/watchlist'>Watchlist</Link></li>
                 </ul>
-        </aside>
-     );
+            </div>
+         );
+    }
 }
  
 export default Sidebar;
