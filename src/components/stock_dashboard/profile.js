@@ -6,7 +6,6 @@ class Profile extends PureComponent {
         let company = this.props.company
         return (
             <div className="content">
-                <h3>Profile</h3>
                 <p>{company.description}</p>
                 <table className="table is-hoverable is-fullwidth">
                     <tbody>
