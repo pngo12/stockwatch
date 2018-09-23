@@ -14,13 +14,13 @@ const initialState = {
     company: {},
     earnings: {},
     news: [],
-    peers: '',
+    peers: [],
     chart: [],
     otherChart: [],
     watchlist: [],
     isLoading: false,
     doneLoading: false,
-    error: false
+    error: false,
 }
 
 const rootReducer = (state = initialState, action) => {

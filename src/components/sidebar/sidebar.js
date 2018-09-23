@@ -12,13 +12,7 @@ const Sidebar = () => {
                         <Link to='/'>Home</Link>
                     </li>
                     <li>
-                        <a> Portfolio </a>
-                    </li>
-                    <li>
                         <Link to='/watchlist'>Watchlist</Link>
-                    </li>
-                    <li>
-                        <SearchInput />
                     </li>
                 </ul>
         </aside>

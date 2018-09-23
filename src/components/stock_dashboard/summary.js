@@ -8,6 +8,7 @@ import { addToWatchlist, getData } from '../../actions'
 import News from '../news/news'
 import SearchInput from '../search-input/search-input'
 import PriceCard from '../price-card/priceCard'
+import Peers from '../peers/peers'
 
 class Summary extends PureComponent {
     state = {
@@ -83,7 +84,7 @@ class Summary extends PureComponent {
 
             <div className="columns">
                 <div className="column is-fullheight container is-fluid">
-                    <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+                    <a href="#"><i className="fas fa-bars fa-2x"></i></a>
                 </div>
                     <section className="is-large">
                         <div className="column is-11 is-fullheight">
@@ -96,21 +97,30 @@ class Summary extends PureComponent {
                                         symbol={this.props.quote.symbol} 
                                         latestPrice={this.props.quote.latestPrice} 
                                         /> <br />
-                                            {/* <div className="buttons"> */}
                                             {
                                             this.state.clicked 
                                             ? <span className="button" disabled>Added to watchlist</span>
                                             : <span className="button" onClick={this.handleOnClick}>Add to watchlist</span>
                                             }
-                                        {/* </div> */}
                                 </div>
                             <div className="tile is-child box">
                                 <p className="title">Two</p>
-                                <Profile />
+                                    <Profile />
                                 </div>
                             <div className="tile is-child box">
                                 <p className="title">Three</p>
-                                    <p>lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
+                                <p className="title">Peers</p>
+
+                                {this.props.peers.map((peers,i) => {
+                                    return (
+                                        <div className="" key={i}>
+                                        <Peers 
+                                        peers={peers}
+                                        />
+                                        </div>
+                                    )
+                                })}
+
                             </div>
                             <div className="tile is-child box">
                                 <p className="title">Four</p>
@@ -142,7 +152,8 @@ class Summary extends PureComponent {
 const mapStateToProps = state => ({
     isLoading: state.isLoading,
     quote: state.quote,
-    news: state.news
+    news: state.news,
+    peers: state.peers
 })
 
 const mapDispatchToProps = dispatch => ({

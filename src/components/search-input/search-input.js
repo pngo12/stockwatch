@@ -16,7 +16,10 @@ class SearchInput extends Component {
 
     handleSubmit = () => this.props.getData(this.state.ticker)
 
-    keyDown = e => e.keyCode === 13 ? this.props.getData(this.state.ticker) : ''
+    keyDown = e => {   
+        e.stopPropagation()
+        e.keyCode === 13 ? this.props.getData(this.state.ticker) : '';
+    } 
 
     render() {
         return (
@@ -34,6 +37,7 @@ class SearchInput extends Component {
                     <div className="field-label">
                     </div>
                 </div>
+                
                 <Link to={`/summary/${this.state.ticker}`} 
                     type="submit" 
                     className="button" 

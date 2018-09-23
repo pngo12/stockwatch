@@ -7,8 +7,6 @@ const PriceCard = props => {
     <div>
         <p className="title">{props.companyName}</p>
             <p className="subtitle">{props.symbol} <br /> ${props.latestPrice}</p>
-            {/* <p classNmae="subtitle">${props.latestPrice}</p> */}
-            
     </div>
      );
 }
