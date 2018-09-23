@@ -55,7 +55,7 @@ class Dashboard extends PureComponent {
         <section className="section is-marginless is-paddingless">
                     <SearchInput />
             <div className="columns">
-                    <div className="column is-1 is-marginless is-narrow is-fullheight is-fluid box" id="sideColumn">
+                    <div className="column is-1 is-marginless is-narrow is-fullheight is-fluid box" id="dashboard">
                 <Sidebar 
                 handleMouseDown={this.handleMouseDown}
                 sidebarVisibility={this.state.sidebarVisibility}
