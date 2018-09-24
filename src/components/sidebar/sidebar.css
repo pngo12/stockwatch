@@ -1,7 +1,7 @@
 #hiddenMenu {
   width: 10.55vw;
   height: 100vh;
-  background-color: #FFE600;
+  background-color: #DEE3EB;
   position: fixed;
   top: 0;
   left: 0;
@@ -21,7 +21,5 @@
 }
 
 .menulist {
-    /* margin-left: 25%;
-    margin-right: 25%; */
     margin: 15% 25% 0% 25%;
 }

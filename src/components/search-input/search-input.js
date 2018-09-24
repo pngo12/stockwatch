@@ -6,7 +6,6 @@ import { getData } from '../../actions'
 class SearchInput extends Component {
     state = {
         ticker: '',
-        // homepage: true,
     }
 
     onChange = e => {
@@ -26,27 +25,27 @@ class SearchInput extends Component {
 
     render() {
         return (
-            <div className="box">
-                    <input name="ticker"
-                        onChange={this.onChange}
-                        value={this.state.name}
-                        className="input is-hovered"
-                        id="dashboardInput"
-                        type="text"
-                        placeholder="Example: AAPL"
-                        onKeyDown={this.keyDown}
-                    />
-                    <Link to={`/dashboard/${this.state.ticker}`} 
-                        type="submit" 
-                        className="button" 
-                        onKeyDown={this.keyDown} 
-                        onClick={this.handleSubmit}> 
-                        Get Data </Link>
-                    {
-                        this.props.error
-                            ? <p>Sorry we had trouble finding that ticker</p>
-                            : <span></span>
-                    }
+            <div className="field is-grouped" id="dashboardInput">
+                <input name="ticker"
+                    onChange={this.onChange}
+                    value={this.state.name}
+                    className="input is-hovered"
+                    type="text"
+                    placeholder="Example: AAPL"
+                    onKeyDown={this.keyDown}
+                /> 
+                <Link to={`/dashboard/${this.state.ticker}`} 
+                    type="submit"
+                    id="submitButton" 
+                    className="button is-link" 
+                    onKeyDown={this.keyDown} 
+                    onClick={this.handleSubmit}> 
+                    Get Data </Link>
+                {
+                    this.props.error
+                        ? <p>Sorry we had trouble finding that ticker</p>
+                        : <span></span>
+                }
             </div>
         )
     }

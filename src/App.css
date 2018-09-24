@@ -1,17 +1,7 @@
-#sideColumn{
-    width: 100px;
+body {
+    background-color: #F5F5F8;
 }
 
-/* #rightArrow{
-    margin-right: auto;
-    margin-left: auto;
-} */
-
-#dashboardInput {
-    margin-bottom: 1%
-}
-
-
-.homePage {
-    
+td{
+    color: #7A7A7A;
 }

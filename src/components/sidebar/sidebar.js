@@ -21,6 +21,7 @@ class Sidebar extends Component {
                             <p className="menu-label">Navigation</p>
                             <li><Link to='/'>Home</Link> </li>
                             <li><Link to='/watchlist'>Watchlist</Link></li>
+                            <li><Link to='/dashboard/AAPL'>Dashboard</Link></li>
                         </ul>
                     </aside>
                 </div>

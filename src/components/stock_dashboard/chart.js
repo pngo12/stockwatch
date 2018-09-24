@@ -43,7 +43,11 @@ class Chart extends PureComponent {
                 },
             ],
             options: {
-                displayLegend: false
+                legend: {
+                    display: false
+                },
+                maintainAspectRatio: false,
+                reponsive: true,
             }
         }
 
@@ -54,9 +58,7 @@ class Chart extends PureComponent {
                 : <Line 
                 width={500}
                 height={500}
-                options={{
-                    maintainAspectRatio: false
-                }}
+                options={data.options}
                 
                 data={data} />}
 

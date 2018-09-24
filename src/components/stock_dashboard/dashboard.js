@@ -9,6 +9,7 @@ import News from '../news/news'
 import SearchInput from '../search-input/search-input'
 import PriceCard from '../price-card/priceCard'
 import Peers from '../peers/peers'
+import './dashboard.css'
 
 class Dashboard extends PureComponent {
     state = {
@@ -51,15 +52,18 @@ class Dashboard extends PureComponent {
             //                     )})
             //              }   
 
-
         <section className="section is-marginless is-paddingless">
-                    <SearchInput />
+                <div className="dashboard">
+                    <div id="searchContainer">
+                        <SearchInput />
+                        </div>
+                </div>
             <div className="columns">
-                    <div className="column is-1 is-marginless is-narrow is-fullheight is-fluid box" id="dashboard">
-                <Sidebar 
-                handleMouseDown={this.handleMouseDown}
-                sidebarVisibility={this.state.sidebarVisibility}
-                />
+                <div className="column is-narrow is-fullheight" id="sidebarColumn">
+                    <Sidebar 
+                    handleMouseDown={this.handleMouseDown}
+                    sidebarVisibility={this.state.sidebarVisibility}
+                    />
                 <a onMouseUp={this.handleMouseDown}><i id="rightArrow" className="fas fa-arrow-right fa-2x"></i></a>
                 </div>
                     <section>
@@ -75,7 +79,7 @@ class Dashboard extends PureComponent {
                                             {
                                             this.state.clicked 
                                             ? <span className="button" disabled>Added to watchlist</span>
-                                            : <span className="button" onClick={this.handleOnClick}>Add to watchlist</span>
+                                            : <span className="button is-link" onClick={this.handleOnClick}>Add to watchlist</span>
                                             }
                                 </div>
                             <div className="tile is-child box">
@@ -100,9 +104,9 @@ class Dashboard extends PureComponent {
                         <div className="tile is-parent is-vertical is-8">
                             <div className="tile is-child box">
                                 <p className="title">Price History</p>
-                                <Chart 
-                                
-                                />
+                                <div id="container">
+                                    <Chart />
+                                </div>
                             </div>
                             <div className="tile is-child box">
                             <p className="title">Summary</p>

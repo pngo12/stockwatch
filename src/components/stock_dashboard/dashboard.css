@@ -1,0 +1,32 @@
+#sidebarColumn {
+    max-width: 20%;
+    border-right: 1px solid #DEE3EB;
+    margin-right: 1%;
+    background-color: #fff
+}
+
+.dashboard {
+    border-bottom: 1px solid #DEE3EB;
+    width: 100%;
+    margin-bottom: .8%;
+    background-color: #fff
+}
+
+#searchContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%
+}
+
+#arrowContainer{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#dashboardInput {
+    margin: .7%
+}
+
+#submitButton{
+    margin-left: .4%
+}

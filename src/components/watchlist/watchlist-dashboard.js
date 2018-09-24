@@ -4,6 +4,18 @@ import WatchlistCard from '../watchlist/watchlist-card'
 import { connect } from 'react-redux'
 
 class WatchListDashboard extends Component {
+    state = {
+        sidebarVisibility: false
+    }
+
+    toggleSidebar = () => {
+        this.setState({ sidebarVisibility: !this.state.sidebarVisibility })
+    }
+
+    handleMouseDown = e => {
+        this.toggleSidebar()
+        e.stopPropagation()
+    }
     render() {
         return (
             <section className="container is-fluid">
@@ -14,7 +26,16 @@ class WatchListDashboard extends Component {
                 </div>
                 <div className="columns">
                     <div className="column is-fullheight is-2 is-pulled-left">
-                        <Sidebar />
+                        <Sidebar
+                            handleMouseDown={this.handleMouseDown}
+                            sidebarVisibility={this.state.sidebarVisibility}
+                        />
+                        <div id="arrowContainer">
+                            <a onMouseUp={this.handleMouseDown}>
+                                <i id="rightArrow" className="fas fa-arrow-right fa-2x"></i>
+                            </a>
+                        </div>
+
                     </div>
                     <div className="column is-1"></div>
                     <div className="column is-8 is-fullheight inline-flex">

@@ -27,8 +27,8 @@ class Summary extends PureComponent {
                     </tr>
                     <tr>
                         <td>${quote.week52High}</td>
-                        <td>${quote.week52Low}%</td>
-                        <td>{quote.iexAskPrice}</td>
+                        <td>${quote.week52Low}</td>
+                        <td>${quote.iexAskPrice}</td>
                         <td>${quote.iexBidPrice}</td>
                     </tr>
                     <tr>
@@ -40,7 +40,7 @@ class Summary extends PureComponent {
                     <tr>
                         <td>${quote.change}</td>
                         <td>{quote.changePercent}%</td>
-                        <td>{quote.ytdChange}</td>
+                        <td>{quote.ytdChange}%</td>
                         <td>{quote.peRatio}</td>
                     </tr>
                     <tr>
@@ -52,9 +52,8 @@ class Summary extends PureComponent {
                     <tr>
                         <td>{quote.iexVolume}</td>
                         <td>{quote.avgTotalVolume}</td>
-                        {/* Probably isn't market cap below */}
                         <td>{quote.marketCap}</td>
-                        <td>{quote.iexMarketPercent}</td>
+                        <td>{quote.iexMarketPercent}%</td>
                     </tr>
                 </tbody>
             </table>
