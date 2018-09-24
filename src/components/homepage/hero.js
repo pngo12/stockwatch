@@ -5,12 +5,12 @@ import SearchInput from '../search-input/search-input'
 class HeroHome extends Component {
     state = {
         showInput: false,
-        showButton: true
+        showButton: true,
     }
     renderInput = () => {
         this.setState({
             showInput: true,
-            showButton: false
+            showButton: false,
         })
     }
     

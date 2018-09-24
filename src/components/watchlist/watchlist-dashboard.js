@@ -22,11 +22,9 @@ class WatchListDashboard extends Component {
 
         <body id="watchlist">
             <section className="container is-fluid">
-                <div>
                     <section className="section">
                         <p className="title">Your Watchlist</p>
                     </section>
-                </div>
                 <div className="columns">
                     <div className="column is-fullheight is-2 is-pulled-left">
                         <Sidebar

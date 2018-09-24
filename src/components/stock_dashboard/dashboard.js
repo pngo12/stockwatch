@@ -5,7 +5,7 @@ import Profile from './profile'
 import Summary from './summary'
 import Sidebar from '../sidebar/sidebar'
 import { addToWatchlist, getData, flipClicked } from '../../actions'
-import News from '../news/news'
+// import News from '../news/news'
 import SearchInput from '../search-input/search-input'
 import PriceCard from '../price-card/priceCard'
 import Peers from '../peers/peers'
@@ -53,7 +53,7 @@ class Dashboard extends PureComponent {
                     />
                 <a onMouseUp={this.handleMouseDown}><i id="rightArrow" className="fas fa-arrow-right fa-2x"></i></a>
                 </div>
-                    <section>
+                    <section id="bigSection">
                         <div className="column is-11 is-fullheight">
                             <div className="tile is-ancestor">
                                 <div className="level tile is-4 is-vertical is-parent">

@@ -54,7 +54,7 @@ class Chart extends PureComponent {
         return (
             <div>
                 {this.props.isLoading 
-                ? <img src={loading} /> 
+                ? <img src={loading} alt="a loading gif"/> 
                 : <Line 
                 width={500}
                 height={500}

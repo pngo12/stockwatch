@@ -39,8 +39,8 @@ class Summary extends PureComponent {
                     </tr>
                     <tr>
                         <td>${quote.change}</td>
-                        <td>{quote.changePercent}%</td>
-                        <td>{quote.ytdChange}%</td>
+                        <td>{quote.changePercent*100}%</td>
+                        <td>{parseFloat(quote.ytdChange).toFixed(2)}%</td>
                         <td>{quote.peRatio}</td>
                     </tr>
                     <tr>
@@ -53,7 +53,7 @@ class Summary extends PureComponent {
                         <td>{quote.iexVolume}</td>
                         <td>{quote.avgTotalVolume}</td>
                         <td>{quote.marketCap}</td>
-                        <td>{quote.iexMarketPercent}%</td>
+                        <td>{parseFloat(quote.iexMarketPercent*100).toFixed(2)}%</td>
                     </tr>
                 </tbody>
             </table>
