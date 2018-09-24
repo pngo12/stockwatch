@@ -6,6 +6,7 @@ import {
     WRONG_SYMBOL,
     IS_LOADING,
     GET_DATA,
+    FLIP_CLICKED
 } from '../constants'
 
 export const getData = ticker => dispatch => {
@@ -28,7 +29,7 @@ export const getData = ticker => dispatch => {
                     peers: peers.data,
                     chart: chart.data,
                     ticker: quote.data.symbol,
-                    news: news.data
+                    news: news.data,
                 }
             })
         }))
@@ -58,3 +59,7 @@ export const removeFromWatchlist = id => dispatch => {
             dispatch({type: GET_DATA, payload: res.data})
         })
     }
+
+export const flipClicked = () => dispatch => {
+    dispatch({ type: FLIP_CLICKED})
+}

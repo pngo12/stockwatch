@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from '../sidebar/sidebar'
 import WatchlistCard from '../watchlist/watchlist-card'
 import { connect } from 'react-redux'
+import SearchInput from '../search-input/search-input'
 
 class WatchListDashboard extends Component {
     state = {
@@ -18,6 +19,8 @@ class WatchListDashboard extends Component {
     }
     render() {
         return (
+
+        <body id="watchlist">
             <section className="container is-fluid">
                 <div>
                     <section className="section">
@@ -29,27 +32,25 @@ class WatchListDashboard extends Component {
                         <Sidebar
                             handleMouseDown={this.handleMouseDown}
                             sidebarVisibility={this.state.sidebarVisibility}
-                        />
+                            />
                         <div id="arrowContainer">
                             <a onMouseUp={this.handleMouseDown}>
                                 <i id="rightArrow" className="fas fa-arrow-right fa-2x"></i>
                             </a>
                         </div>
-
                     </div>
-                    <div className="column is-1"></div>
-                    <div className="column is-8 is-fullheight inline-flex">
+                    <div className="column is-8 inline-flex">
                         <div className="columns is-multiline">
                             {
-                            this.props.watchlist.map((property,index) => {
-                                return (
-                                    <div className="column is-4" key={index}>
+                                this.props.watchlist.map((property,index) => {
+                                    return (
+                                        <div className="column is-4" key={index}>
                                         <WatchlistCard
                                             title={property.companyName}
                                             symbol={property.symbol}
                                             latestPrice={property.latestPrice}
                                             index={index}
-                                        />
+                                            />
                                     </div>
                                 )})
                             }
@@ -57,6 +58,7 @@ class WatchListDashboard extends Component {
                     </div>
                 </div>
             </section>
+        </body>
         );
     }
 }

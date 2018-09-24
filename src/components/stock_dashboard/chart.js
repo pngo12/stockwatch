@@ -25,17 +25,17 @@ class Chart extends PureComponent {
                     fill: false,
                     lineTension: .3,
                     backgroundColor: 'rgba(75,192,192,0.4)',
-                    borderColor: 'rgba(75,192,192,1)',
+                    borderColor: '#3273DC',
                     borderCapStyle: 'round',
                     borderDash: [],
                     borderDashOffset: 0.0,
                     borderJoinStyle: 'miter',
-                    pointBorderColor: 'rgba(75,192,192,1)',
-                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#fff',
+                    pointBackgroundColor: '#7A7A7A',
                     pointBorderWidth: 1,
                     pointHoverRadius: 5,
-                    pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-                    pointHoverBorderColor: 'rgba(220,220,220,1)',
+                    pointHoverBackgroundColor: '#3273DC',
+                    pointHoverBorderColor: '#7A7A7A',
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
@@ -59,7 +59,6 @@ class Chart extends PureComponent {
                 width={500}
                 height={500}
                 options={data.options}
-                
                 data={data} />}
 
                     <div className="buttons has-addons is-pulled-right">

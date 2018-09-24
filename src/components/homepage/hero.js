@@ -20,11 +20,6 @@ class HeroHome extends Component {
                 <div className="hero-head">
                     <header className="navbar">
                         <div className="container">
-                            <div className="navbar-brand">
-                                {/* <a className="navbar-item">
-                                    <img src="https://bulma.io/images/bulma-type-white.png" alt="Logo" />
-                                </a> */}
-                            </div>
                             <div className="navbar-end">
                                 <a className="navbar-item">Home</a>
                                 <a className="navbar-item">About</a>

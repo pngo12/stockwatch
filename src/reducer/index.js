@@ -6,6 +6,7 @@ import {
     GET_NEW_CHART_DATE,
     IS_LOADING,
     GET_DATA,
+    FLIP_CLICKED
 } from '../constants'
 
 const initialState = {
@@ -21,6 +22,7 @@ const initialState = {
     isLoading: false,
     doneLoading: false,
     error: false,
+    clicked: false
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -31,6 +33,7 @@ const rootReducer = (state = initialState, action) => {
                 ...action.payload,
                 doneLoading: true,
                 error: false,
+                clicked: false
             }
         case IS_LOADING:
             return { ...state, isLoading: true }
@@ -41,7 +44,7 @@ const rootReducer = (state = initialState, action) => {
         case ADD_TO_WATCHLIST:
             return {
                 ...state,
-                watchlist: [...state.watchlist, action.payload]
+                watchlist: [...state.watchlist, action.payload],
             }
         case REMOVE_STOCK_FROM_WATCHLIST:
             return {
@@ -50,6 +53,8 @@ const rootReducer = (state = initialState, action) => {
             }
         case GET_NEW_CHART_DATE:
             return { ...state, otherChart: action.payload }
+        case FLIP_CLICKED:
+            return {...state, clicked: true}
         default:
             return state
     }

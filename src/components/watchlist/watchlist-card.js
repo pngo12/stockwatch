@@ -15,7 +15,7 @@ const WatchlistCard = props => {
             </div>
             <footer className="card-footer">
                 <div className="buttons">
-                    <span onClick={() => props.removeFromWatchlist(index)} className="button">Remove from watchlist</span>
+                    <span onClick={() => props.removeFromWatchlist(index)} className="button is-danger">Remove from watchlist</span>
                 </div>
             </footer>
         </div>

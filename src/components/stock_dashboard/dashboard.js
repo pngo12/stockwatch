@@ -4,7 +4,7 @@ import Chart from './chart'
 import Profile from './profile'
 import Summary from './summary'
 import Sidebar from '../sidebar/sidebar'
-import { addToWatchlist, getData } from '../../actions'
+import { addToWatchlist, getData, flipClicked } from '../../actions'
 import News from '../news/news'
 import SearchInput from '../search-input/search-input'
 import PriceCard from '../price-card/priceCard'
@@ -13,14 +13,14 @@ import './dashboard.css'
 
 class Dashboard extends PureComponent {
     state = {
-        clicked: false,
         sidebarVisibility: false
     }
     
     //Handles fetching data from API
     handleOnClick = () => {
         this.props.addToWatchlist(this.props.quote.symbol)
-        this.setState({ clicked: true })
+        this.props.flipClicked()
+        // this.setState({ clicked: true })
     }
 
     // If link is sent with stock appended to URL, data will fetch upon page load
@@ -39,20 +39,7 @@ class Dashboard extends PureComponent {
 
     render() {
         return (                        
-            //             {
-            //                 this.props.news.map((x, index) => {
-            //                     return (
-            //                         <div classname="column is-1" key={index}>
-            //                             <News
-            //                                 headline={x.headline}
-            //                                 summary={x.summary}
-            //                                 url={x.url}
-            //                             />
-            //                         </div>
-            //                     )})
-            //              }   
-
-        <section className="section is-marginless is-paddingless">
+            <section className="section is-marginless is-paddingless">
                 <div className="dashboard">
                     <div id="searchContainer">
                         <SearchInput />
@@ -77,7 +64,7 @@ class Dashboard extends PureComponent {
                                         latestPrice={this.props.quote.latestPrice} 
                                         /> <br />
                                             {
-                                            this.state.clicked 
+                                            this.props.clicked 
                                             ? <span className="button" disabled>Added to watchlist</span>
                                             : <span className="button is-link" onClick={this.handleOnClick}>Add to watchlist</span>
                                             }
@@ -127,13 +114,30 @@ const mapStateToProps = state => ({
     isLoading: state.isLoading,
     quote: state.quote,
     news: state.news,
-    peers: state.peers
+    peers: state.peers,
+    clicked: state.clicked
 })
 
 const mapDispatchToProps = dispatch => ({
     addToWatchlist: ticker => dispatch(addToWatchlist(ticker)),
     getData: symbol => dispatch(getData(symbol)),
+    flipClicked: () => dispatch(flipClicked())
 })
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+
+
+
+            //             {
+            //                 this.props.news.map((x, index) => {
+            //                     return (
+            //                         <div classname="column is-1" key={index}>
+            //                             <News
+            //                                 headline={x.headline}
+            //                                 summary={x.summary}
+            //                                 url={x.url}
+            //                             />
+            //                         </div>
+            //                     )})
+            //              }   

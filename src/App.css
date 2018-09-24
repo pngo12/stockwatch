@@ -1,5 +1,13 @@
+html{
+    height: 100;
+}
 body {
     background-color: #F5F5F8;
+    height: 100%;
+}
+
+#watchlist {
+    height: 100%;
 }
 
 td{
