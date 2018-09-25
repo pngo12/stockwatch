@@ -5,7 +5,6 @@ import Profile from './profile'
 import Summary from './summary'
 import Sidebar from '../sidebar/sidebar'
 import { addToWatchlist, getData, flipClicked } from '../../actions'
-// import News from '../news/news'
 import SearchInput from '../search-input/search-input'
 import PriceCard from '../price-card/priceCard'
 import Peers from '../peers/peers'
@@ -83,8 +82,7 @@ class Dashboard extends PureComponent {
                                         peers={peers}
                                         />
                                         </span>
-                                        )
-                                })}
+                                        )})}
 
                             </div>
                         </div>

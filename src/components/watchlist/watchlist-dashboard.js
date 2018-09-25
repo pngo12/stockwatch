@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Sidebar from '../sidebar/sidebar'
 import WatchlistCard from '../watchlist/watchlist-card'
 import { connect } from 'react-redux'
-import SearchInput from '../search-input/search-input'
 
 class WatchListDashboard extends Component {
     state = {
@@ -19,7 +18,6 @@ class WatchListDashboard extends Component {
     }
     render() {
         return (
-
         <body id="watchlist">
             <section className="container is-fluid">
                     <section className="section">

@@ -40,7 +40,7 @@ class Summary extends PureComponent {
                     <tr>
                         <td>${quote.change}</td>
                         <td>{quote.changePercent*100}%</td>
-                        <td>{parseFloat(quote.ytdChange).toFixed(2)}%</td>
+                        <td>{parseFloat(quote.ytdChange*100).toFixed(2)}%</td>
                         <td>{quote.peRatio}</td>
                     </tr>
                     <tr>
