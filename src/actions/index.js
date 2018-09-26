@@ -17,7 +17,6 @@ export const getData = ticker => dispatch => {
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/peers`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/1d`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/news`),
-
     ])
         .then(axios.spread((quote, company, earnings, peers, chart, news) => {
             dispatch({
@@ -46,20 +45,20 @@ export const addToWatchlist = ticker => dispatch => {
                 payload: res.data
             })
         })
-    }
+}
 
 export const removeFromWatchlist = id => dispatch => {
     dispatch({ type: REMOVE_STOCK_FROM_WATCHLIST, payload: id })
 }
 
-    export const getChartDate = (range, ticker) => dispatch => {
-        dispatch({type: IS_LOADING})
-            axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/${range}`)
-        .then (res => {
-            dispatch({type: GET_DATA, payload: res.data})
+export const getChartDate = (range, ticker) => dispatch => {
+    dispatch({ type: IS_LOADING })
+    axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/${range}`)
+        .then(res => {
+            dispatch({ type: GET_DATA, payload: res.data })
         })
-    }
+}
 
 export const flipClicked = () => dispatch => {
-    dispatch({ type: FLIP_CLICKED})
+    dispatch({ type: FLIP_CLICKED })
 }

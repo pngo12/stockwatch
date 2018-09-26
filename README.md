@@ -1,6 +1,6 @@
-# stockwatch
+# StockWatch
 
-To run Stockwatch:
+## To run StockWatch:
 
 1. Clone the repo
 
@@ -10,8 +10,8 @@ To run Stockwatch:
 
 ``` npm install ```
 
-3. Start Stockwatch on your local server
+3. Start StockWatch on your local server
 
 ``` npm start ```
 
-4. Enter a ticker symbol!
+4. Enter a ticker symbol, and voila!

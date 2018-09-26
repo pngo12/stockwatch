@@ -39,7 +39,7 @@ class Chart extends PureComponent {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: this.props.chartData.map(arr => arr.high)
+                    data: this.props.chartData.map(arr => arr.high).filter(val => val > 0)
                 },
             ],
             options: {
