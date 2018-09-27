@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux'
 import { getChartDate } from '../../actions'
 import loading from '../../images/loading.gif'
+import rootReducer from '../../reducer'
 
 class Chart extends PureComponent {
     state = {
@@ -12,8 +13,8 @@ class Chart extends PureComponent {
     // Takes in the data range for the chart and fetches data from API
     handleOnClick = range => {
         this.setState({
-            range }, 
-            () => this.props.getChartDate(this.state.range, this.props.ticker))
+            range
+        }, () => this.props.getChartDate(this.state.range, this.props.ticker))
     }
 
     render() {
@@ -48,7 +49,7 @@ class Chart extends PureComponent {
                 },
                 maintainAspectRatio: false,
                 reponsive: true,
-            }
+            },
         }
 
         return (
@@ -76,9 +77,13 @@ class Chart extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    isLoading: state.isLoading,
-    chartData: state.chart,
-    ticker: state.ticker,
+    loading: state.loading
+    
+    // isLoading: receiveData(state),
+    // isLoading: state.isLoading,
+    // chartData: receiveData(state)
+    // chartData: state.chart,
+    // ticker: state.ticker,
 })
 
 const mapDispatchToProps = dispatch => ({

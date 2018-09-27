@@ -5,11 +5,17 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import {createStore, applyMiddleware} from 'redux'
+import {createStore, applyMiddleware, combineReducers} from 'redux'
 import thunk from 'redux-thunk'
 import rootReducer from './reducer'
 import Dashboard from './components/stock_dashboard/dashboard'
 import WatchListDashboard from './components/watchlist/watchlist-dashboard'
+
+const rootReducer = combineReducers({
+    loading: loading,
+    getData: getData,
+    watchlist: watchlist
+})
 
 const store = createStore(
     rootReducer,
