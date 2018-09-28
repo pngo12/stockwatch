@@ -7,14 +7,17 @@ import {Provider} from 'react-redux'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {createStore, applyMiddleware, combineReducers} from 'redux'
 import thunk from 'redux-thunk'
-import rootReducer from './reducer'
+import getData from './reducer/chartdata'
+import loading from './reducer/loading'
+import watchlisthelper from './reducer/watchlisthelper'
 import Dashboard from './components/stock_dashboard/dashboard'
 import WatchListDashboard from './components/watchlist/watchlist-dashboard'
 
+
 const rootReducer = combineReducers({
-    loading: loading,
-    getData: getData,
-    watchlist: watchlist
+     loading,
+     getData,
+     watchlisthelper
 })
 
 const store = createStore(

@@ -1,4 +1,4 @@
-import { RECEIVED_ALL_DATA, GET_DATA, WRONG_SYMBOL, GET_NEW_CHART_DATE } from '../constants'
+import { RECEIVED_ALL_DATA, GET_DATA, WRONG_SYMBOL, GET_NEW_CHART_DATE} from '../constants'
 
 const initialState = {
     ticker: '',
@@ -7,12 +7,14 @@ const initialState = {
     earnings: {},
     news: [],
     peers: [],
+    chart: [],
+    otherChart: [],
     isLoading: false,
     doneLoading: false,
     error: false,
 }
 
-const reducer = (state = initialState, action) => {
+const getData = (state = initialState, action) => {
     switch (action.type) {
         case RECEIVED_ALL_DATA:
             return {
@@ -32,4 +34,4 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-export default reducer;
+export default getData;

@@ -5,7 +5,7 @@ const initialState = {
     doneLoading: false,
 }
 
-const reducer = (state = initialState, action) => {
+const loading = (state = initialState, action) => {
     switch (action.type) {
         case IS_LOADING:
             return { ...state, isLoading: true }
@@ -14,4 +14,4 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-export default reducer 
+export default loading 

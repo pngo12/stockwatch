@@ -3,7 +3,6 @@ import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux'
 import { getChartDate } from '../../actions'
 import loading from '../../images/loading.gif'
-import rootReducer from '../../reducer'
 
 class Chart extends PureComponent {
     state = {
@@ -77,11 +76,10 @@ class Chart extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    loading: state.loading
-    
-    // isLoading: receiveData(state),
+    isLoading: state.loading.isLoading,
+    chartData: state.getData.chart,
+    ticker: state.getData.ticker
     // isLoading: state.isLoading,
-    // chartData: receiveData(state)
     // chartData: state.chart,
     // ticker: state.ticker,
 })

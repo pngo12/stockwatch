@@ -39,7 +39,7 @@ class Profile extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    company: state.company
+    company: state.getData.company
 })
 
 export default connect(mapStateToProps, null)(Profile)

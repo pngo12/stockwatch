@@ -4,7 +4,7 @@ const initialState = {
     watchlist: [],
 }
 
-const reducer = (state = initialState, action) => {
+const watchlist = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TO_WATCHLIST:
             return {
@@ -21,4 +21,4 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-export default reducer
+export default watchlist

@@ -26,7 +26,7 @@ class Dashboard extends PureComponent {
     componentDidMount() {
         this.props.getData(this.props.match.params.id)
     }
-
+    
     toggleSidebar = () => {
         this.setState({ sidebarVisibility: !this.state.sidebarVisibility })
     }
@@ -109,11 +109,11 @@ class Dashboard extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    isLoading: state.isLoading,
-    quote: state.quote,
-    news: state.news,
-    peers: state.peers,
-    clicked: state.clicked
+    isLoading: state.loading.isLoading,
+    quote: state.getData.quote,
+    peers: state.getData.peers,
+    // news: state.getDatanews,
+    // clicked: state.clicked
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -1,18 +1,25 @@
-import {
-    RECEIVED_ALL_DATA,
-    ADD_TO_WATCHLIST,
-    REMOVE_STOCK_FROM_WATCHLIST,
-    WRONG_SYMBOL,
-    GET_NEW_CHART_DATE,
-    IS_LOADING,
-    GET_DATA,
-    FLIP_CLICKED
-} from '../constants'
+// import {
+//     RECEIVED_ALL_DATA,
+//     ADD_TO_WATCHLIST,
+//     REMOVE_STOCK_FROM_WATCHLIST,
+//     WRONG_SYMBOL,
+//     GET_NEW_CHART_DATE,
+//     IS_LOADING,
+//     GET_DATA,
+//     FLIP_CLICKED
+// } from '../constants'
 import {combineReducers} from 'redux'
 import loading from './loading'
 import getData from './chartdata'
 import watchlist from './watchlisthelper'
 
+
+
+export default combineReducers({
+    watchlist,
+    getData,
+    loading
+})
 
 
 // const initialState = {
@@ -135,10 +142,5 @@ import watchlist from './watchlisthelper'
     // loadingGifHelper
 // })
 
+// export default rootReducer
 
-
-export default combineReducers({
-    watchlist,
-    getData,
-    loading
-})

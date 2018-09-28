@@ -52,8 +52,8 @@ class SearchInput extends Component {
 }
 
 const mapStateToProps = state => ({
-    redirect: state.redirect,
-    error: state.error
+    // error: state.error
+    error: state.getData.error
 })
 
 const mapDispatchToProps = dispatch => ({

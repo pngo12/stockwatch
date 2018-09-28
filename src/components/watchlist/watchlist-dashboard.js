@@ -61,7 +61,7 @@ class WatchListDashboard extends Component {
 
 
 const mapStateToProps = state => ({
-    watchlist: state.watchlist
+    watchlist: state.watchlist.watchlist
 })
 
 
