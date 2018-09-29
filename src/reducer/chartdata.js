@@ -1,4 +1,9 @@
-import { RECEIVED_ALL_DATA, GET_DATA, WRONG_SYMBOL, GET_NEW_CHART_DATE} from '../constants'
+import { 
+    RECEIVED_ALL_DATA, 
+    GET_DATA, 
+    WRONG_SYMBOL, 
+    IS_LOADING
+} from '../constants'
 
 const initialState = {
     ticker: '',
@@ -8,7 +13,6 @@ const initialState = {
     news: [],
     peers: [],
     chart: [],
-    otherChart: [],
     isLoading: false,
     doneLoading: false,
     error: false,
@@ -24,11 +28,11 @@ const getData = (state = initialState, action) => {
                 error: false,
             }
         case GET_DATA:
-            return { ...state, isLoading: false, chart: action.payload }
-        case GET_NEW_CHART_DATE:
-            return { ...state, otherChart: action.payload }
+            return { ...state, isLoading: false, chart: action.payload}
         case WRONG_SYMBOL:
             return {...state, error: true}
+        case IS_LOADING:
+            return { ...state, isLoading: true }
         default:
             return state
     }

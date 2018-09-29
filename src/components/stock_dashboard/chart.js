@@ -76,12 +76,9 @@ class Chart extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    isLoading: state.loading.isLoading,
+    isLoading: state.getData.isLoading,
     chartData: state.getData.chart,
     ticker: state.getData.ticker
-    // isLoading: state.isLoading,
-    // chartData: state.chart,
-    // ticker: state.ticker,
 })
 
 const mapDispatchToProps = dispatch => ({

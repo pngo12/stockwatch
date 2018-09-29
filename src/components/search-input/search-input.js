@@ -52,7 +52,6 @@ class SearchInput extends Component {
 }
 
 const mapStateToProps = state => ({
-    // error: state.error
     error: state.getData.error
 })
 

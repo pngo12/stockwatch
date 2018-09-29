@@ -113,7 +113,6 @@ const mapStateToProps = state => ({
     quote: state.getData.quote,
     peers: state.getData.peers,
     // news: state.getDatanews,
-    // clicked: state.clicked
 })
 
 const mapDispatchToProps = dispatch => ({
