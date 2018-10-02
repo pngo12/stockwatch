@@ -8,6 +8,10 @@ class SearchInput extends Component {
         ticker: '',
     }
 
+    // shouldComponentUpdate(nextProps) {
+    //     if (nextProps.match.params.data !== props.match.params.data) 
+    // }
+
     onChange = e => {
         this.setState({
             [e.target.name]: e.target.value.toUpperCase()

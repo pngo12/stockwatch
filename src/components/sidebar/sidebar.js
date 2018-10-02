@@ -31,3 +31,38 @@ class Sidebar extends Component {
 }
 
 export default Sidebar;
+
+
+
+// import React, { Component } from 'react';
+// import {Router, Route} from 'react-router-dom'
+// import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText} from '@trendmicro/react-sidenav'
+
+
+
+// <Router>
+//     <Route render={({location, history}) => (
+//         <React.fragment>
+//             <SideNav
+//                 onSelect={(selected) => {
+//                     const to='/' + selected
+//                     if (location.pathname !== to) {
+//                         history.push(to)
+//                     }
+//                 }}
+//                 >
+//                 <SideNav.Toggle />
+//                 <SideNav.Nav defaultSelected="home">
+//                     <NavIcon>
+//                         <i className="fa fa-fw fa-home" style={{fontSize: '1.75em'}} />
+//                     </NavIcon>
+//                     <NavText>
+//                         Home
+//                     </NavText>
+//                 </SideNav.Nav>
+
+
+//                 </SideNav>
+//         </React.fragment>
+//     )}
+// </Router>

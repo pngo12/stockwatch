@@ -16,9 +16,9 @@ class Chart extends PureComponent {
         }, () => this.props.getChartDate(this.state.range, this.props.ticker))
     }
 
-    render() {
+    render() { 
         let data = {
-            labels: this.props.chartData.map(arr => arr.label),
+            labels: this.props.chartData.filter(obj => obj.high > 0).map(arr => arr.label),
             datasets: [
                 {
                     label: 'Price',
@@ -27,7 +27,7 @@ class Chart extends PureComponent {
                     backgroundColor: 'rgba(75,192,192,0.4)',
                     borderColor: '#3273DC',
                     borderCapStyle: 'round',
-                    borderDash: [],
+                    borderDash: [], 
                     borderDashOffset: 0.0,
                     borderJoinStyle: 'miter',
                     pointBorderColor: '#fff',
@@ -62,12 +62,12 @@ class Chart extends PureComponent {
                 data={data} />}
 
                     <div className="buttons has-addons is-pulled-right">
-                    <span className="button" onClick={() => this.handleOnClick('1d')}>1d</span>
-                    <span className="button" onClick={() => this.handleOnClick('1m')}>1m</span>
-                    <span className="button" onClick={() => this.handleOnClick('3m')}>3m</span>
-                    <span className="button" onClick={() => this.handleOnClick('6m')}>6m</span>
-                    <span className="button" onClick={() => this.handleOnClick('1y')}>1y</span>
-                    <span className="button" onClick={() => this.handleOnClick('5y')}>5y</span>
+                    <span className="button" value="1d" onClick={() => this.handleOnClick('1d')}>1d</span>
+                    <span className="button" value="1m" onClick={() => this.handleOnClick('1m')}>1m</span>
+                    <span className="button" value="3m" onClick={() => this.handleOnClick('3m')}>3m</span>
+                    <span className="button" value="6m" onClick={() => this.handleOnClick('6m')}>6m</span>
+                    <span className="button" value="1y" onClick={() => this.handleOnClick('1y')}>1y</span>
+                    <span className="button" value="1d" onClick={() => this.handleOnClick('5y')}>5y</span>
 
                 </div>
             </div>
