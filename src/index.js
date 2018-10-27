@@ -13,7 +13,6 @@ import watchlisthelper from './reducer/watchlisthelper'
 import Dashboard from './components/stock_dashboard/dashboard'
 import WatchListDashboard from './components/watchlist/watchlist-dashboard'
 
-
 const rootReducer = combineReducers({
      loading,
      getData,

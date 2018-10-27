@@ -30,7 +30,7 @@ class HeroHome extends Component {
                 <div className="hero-body">
                     <div className="container">
                         <h1 className="title">Stock Watch</h1>
-                        <h2 className="subtitle">Let's get yo data playa</h2>
+                        <h2 className="subtitle">Simple and clean stock data.</h2>
                         <div className="field is-horizontal">
                             <div className="field-label">
                             </div>
