@@ -123,18 +123,3 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
-
-
-
-            //             {
-            //                 this.props.news.map((x, index) => {
-            //                     return (
-            //                         <div classname="column is-1" key={index}>
-            //                             <News
-            //                                 headline={x.headline}
-            //                                 summary={x.summary}
-            //                                 url={x.url}
-            //                             />
-            //                         </div>
-            //                     )})
-            //              }   
