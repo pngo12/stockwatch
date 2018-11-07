@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux'
-import { getChartDate } from '../../actions'
+import { getChartDate } from '../../redux/actions'
 import loading from '../../images/loading.gif'
 
 class Chart extends PureComponent {
     state = {
         range: '',
     }
-    
+
     // Takes in the data range for the chart and fetches data from API
     handleOnClick = range => {
         this.setState({
@@ -16,7 +16,7 @@ class Chart extends PureComponent {
         }, () => this.props.getChartDate(this.state.range, this.props.ticker))
     }
 
-    render() { 
+    render() {
         let data = {
             labels: this.props.chartData.filter(obj => obj.high > 0).map(arr => arr.label),
             datasets: [
@@ -27,7 +27,7 @@ class Chart extends PureComponent {
                     backgroundColor: 'rgba(75,192,192,0.4)',
                     borderColor: '#3273DC',
                     borderCapStyle: 'round',
-                    borderDash: [], 
+                    borderDash: [],
                     borderDashOffset: 0.0,
                     borderJoinStyle: 'miter',
                     pointBorderColor: '#fff',
@@ -53,22 +53,21 @@ class Chart extends PureComponent {
 
         return (
             <div>
-                {this.props.isLoading 
-                ? <img src={loading} alt="a loading gif"/> 
-                : <Line 
-                width={500}
-                height={500}
-                options={data.options}
-                data={data} />}
+                {this.props.isLoading
+                    ? <img src={loading} alt="a loading gif" />
+                    : <Line
+                        width={500}
+                        height={500}
+                        options={data.options}
+                        data={data} />}
 
-                    <div className="buttons has-addons is-pulled-right">
+                <div className="buttons has-addons is-pulled-right">
                     <span className="button" value="1d" onClick={() => this.handleOnClick('1d')}>1d</span>
                     <span className="button" value="1m" onClick={() => this.handleOnClick('1m')}>1m</span>
                     <span className="button" value="3m" onClick={() => this.handleOnClick('3m')}>3m</span>
                     <span className="button" value="6m" onClick={() => this.handleOnClick('6m')}>6m</span>
                     <span className="button" value="1y" onClick={() => this.handleOnClick('1y')}>1y</span>
                     <span className="button" value="1d" onClick={() => this.handleOnClick('5y')}>5y</span>
-
                 </div>
             </div>
         );
@@ -82,7 +81,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    getChartDate: (range,ticker) => dispatch(getChartDate(range,ticker))
+    getChartDate: (range, ticker) => dispatch(getChartDate(range, ticker))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Chart)

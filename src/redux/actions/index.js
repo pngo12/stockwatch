@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 import {
     RECEIVED_ALL_DATA,
     ADD_TO_WATCHLIST,
@@ -7,9 +7,10 @@ import {
     IS_LOADING,
     GET_DATA,
     FLIP_CLICKED
-} from '../constants'
+} from '../constants';
 
-export const getData = ticker => dispatch => {
+export const getData = ticker => async dispatch => {
+
     axios.all([
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/quote`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/company`),
@@ -33,32 +34,33 @@ export const getData = ticker => dispatch => {
             })
         }))
         .catch(err => {
-            dispatch({ type: WRONG_SYMBOL, payload: err.response })
+            dispatch({ type: WRONG_SYMBOL, payload: err.response });
         })
 }
 
-export const addToWatchlist = ticker => dispatch => {
-    axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/quote`)
-        .then(res => {
-            dispatch({
-                type: ADD_TO_WATCHLIST,
-                payload: res.data
-            })
-        })
+export const getChartDate = (range, ticker) => async dispatch => {
+    dispatch({ type: IS_LOADING });
+    try {
+        const chartData = await axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/${range}`);
+        dispatch({ type: GET_DATA, payload: chartData.data })
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 
-export const removeFromWatchlist = id => dispatch => {
-    dispatch({ type: REMOVE_STOCK_FROM_WATCHLIST, payload: id })
+export const addToWatchlist = ticker => async dispatch => {
+    try {
+        const addToWatchlist = await axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/quote`);
+        dispatch({ type: ADD_TO_WATCHLIST, payload: addToWatchlist.data });
+    }
+    catch (err) {
+        console.log(err);
+    }
+
 }
 
-export const getChartDate = (range, ticker) => dispatch => {
-    dispatch({ type: IS_LOADING })
-    axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/${range}`)
-        .then(res => {
-            dispatch({ type: GET_DATA, payload: res.data })
-        })
-}
+export const removeFromWatchlist = id => dispatch => dispatch({ type: REMOVE_STOCK_FROM_WATCHLIST, payload: id });
 
-export const flipClicked = () => dispatch => {
-    dispatch({ type: FLIP_CLICKED })
-}
+export const flipClicked = () => dispatch => dispatch({ type: FLIP_CLICKED });
+

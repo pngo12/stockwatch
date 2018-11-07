@@ -1,11 +1,10 @@
 import React from 'react';
-import {connect} from 'react-redux'
-import { removeFromWatchlist } from '../../actions'
+import { connect } from 'react-redux';
+import { removeFromWatchlist } from '../../redux/actions';
 
 const WatchlistCard = props => {
     let index = props.index
-    
-        return (
+    return (
         <div className="card">
             <div className="card-content">
                 <p className="title">{props.title}</p>
@@ -22,9 +21,8 @@ const WatchlistCard = props => {
     );
 }
 
-
 const mapDispatchToProps = dispatch => ({
     removeFromWatchlist: index => dispatch(removeFromWatchlist(index))
-})
+});
 
-export default connect(null, mapDispatchToProps)(WatchlistCard)
+export default connect(null, mapDispatchToProps)(WatchlistCard);

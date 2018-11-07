@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
-import {connect} from 'react-redux'
+import { connect } from 'react-redux';
 
 class Summary extends PureComponent {
-    render() { 
-        let quote = this.props.quote
+    render() {
+        let quote = this.props.quote;
         return (
             <table className="table is-hoverable is-fullwidth">
                 <tbody>
@@ -39,8 +39,8 @@ class Summary extends PureComponent {
                     </tr>
                     <tr>
                         <td>${quote.change}</td>
-                        <td>{quote.changePercent*100}%</td>
-                        <td>{parseFloat(quote.ytdChange*100).toFixed(2)}%</td>
+                        <td>{quote.changePercent * 100}%</td>
+                        <td>{parseFloat(quote.ytdChange * 100).toFixed(2)}%</td>
                         <td>{quote.peRatio}</td>
                     </tr>
                     <tr>
@@ -53,16 +53,16 @@ class Summary extends PureComponent {
                         <td>{quote.iexVolume}</td>
                         <td>{quote.avgTotalVolume}</td>
                         <td>{quote.marketCap}</td>
-                        <td>{parseFloat(quote.iexMarketPercent*100).toFixed(2)}%</td>
+                        <td>{parseFloat(quote.iexMarketPercent * 100).toFixed(2)}%</td>
                     </tr>
                 </tbody>
             </table>
-         );
+        );
     }
 }
- 
+
 const mapStateToProps = state => ({
     quote: state.getData.quote
-})
+});
 
-export default connect(mapStateToProps, null)(Summary)
+export default connect(mapStateToProps, null)(Summary);

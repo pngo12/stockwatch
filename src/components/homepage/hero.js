@@ -13,7 +13,7 @@ class HeroHome extends Component {
             showButton: false,
         })
     }
-    
+
     render() {
         return (
             <section className="hero is-light is-fullheight">
@@ -21,8 +21,7 @@ class HeroHome extends Component {
                     <header className="navbar">
                         <div className="container">
                             <div className="navbar-end">
-                                <a className="navbar-item">Home</a>
-                                <a className="navbar-item">About</a>
+                                <a className="navbar-item" href="https://github.com/pngo12/stockwatch">About</a>
                             </div>
                         </div>
                     </header>
