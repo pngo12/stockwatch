@@ -1,31 +1,21 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getData } from '../../actions'
+import { getData } from '../../redux/actions'
 
 class SearchInput extends Component {
     state = {
         ticker: '',
     }
 
-    // shouldComponentUpdate(nextProps) {
-    //     if (nextProps.match.params.data !== props.match.params.data) 
-    // }
+    onChange = e => this.setState({ [e.target.name]: e.target.value.toUpperCase() });
 
-    onChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value.toUpperCase()
-        })
-    }
+    handleSubmit = () => this.props.getData(this.state.ticker);
 
-    handleSubmit = () => {
-        this.props.getData(this.state.ticker)
-    }
-
-    keyDown = e => {   
+    keyDown = e => {
         e.stopPropagation()
         e.keyCode === 13 ? this.props.getData(this.state.ticker) : '';
-    } 
+    }
 
     render() {
         return (
@@ -37,13 +27,13 @@ class SearchInput extends Component {
                     type="text"
                     placeholder="Example: AAPL"
                     onKeyDown={this.keyDown}
-                /> 
-                <Link to={`/dashboard/${this.state.ticker}`} 
+                />
+                <Link to={`/dashboard/${this.state.ticker}`}
                     type="submit"
-                    id="submitButton" 
-                    className="button is-link" 
-                    onKeyDown={this.keyDown} 
-                    onClick={this.handleSubmit}> 
+                    id="submitButton"
+                    className="button is-link"
+                    onKeyDown={this.keyDown}
+                    onClick={this.handleSubmit}>
                     Get Data </Link>
                 {
                     this.props.error

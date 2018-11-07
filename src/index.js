@@ -2,27 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import { Provider } from 'react-redux'
-import { BrowserRouter, Route } from 'react-router-dom'
-import { Switch } from 'react-router'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
-import thunk from 'redux-thunk'
-import getData from './reducer/chartdata'
-import loading from './reducer/loading'
-import watchlisthelper from './reducer/watchlisthelper'
-import Dashboard from './components/stock_dashboard/dashboard'
-import WatchListDashboard from './components/watchlist/watchlist-dashboard'
+import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Switch } from 'react-router';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import getData from './redux/reducer/chartdata';
+import loading from './redux/reducer/loading';
+import watchlisthelper from './redux/reducer/watchlisthelper';
+import Dashboard from './components/stock_dashboard/dashboard';
+import WatchListDashboard from './components/watchlist/watchlist-dashboard';
 
 const rootReducer = combineReducers({
      loading,
      getData,
      watchlisthelper
-})
+});
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
 const store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(thunk)
+    composeEnhancers(applyMiddleware(thunk))
 );
 
 ReactDOM.render(
