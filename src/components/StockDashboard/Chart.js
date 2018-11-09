@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux'
-import { getChartDate } from '../../redux/actions'
+import { getChartDate } from '../../Redux/Actions'
 import loading from '../../images/loading.gif'
 
 class Chart extends PureComponent {
@@ -75,9 +75,9 @@ class Chart extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    isLoading: state.getData.isLoading,
-    chartData: state.getData.chart,
-    ticker: state.getData.ticker
+    isLoading: state.chartData.isLoading,
+    chartData: state.chartData.chart,
+    ticker: state.chartData.ticker
 })
 
 const mapDispatchToProps = dispatch => ({

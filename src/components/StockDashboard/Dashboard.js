@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import Chart from './chart';
-import Profile from './profile';
-import Summary from './summary';
-import Sidebar from '../sidebar/sidebar';
-import { addToWatchlist, getData, flipClicked } from '../../redux/actions/';
-import SearchInput from '../search-input/search-input';
-import PriceCard from '../price-card/priceCard';
-import Peers from '../peers/peers';
-import './dashboard.css';
+import Chart from './Chart';
+import Profile from './Profile';
+import Summary from './Summary';
+import Sidebar from '../Sidebar/Sidebar';
+import { addToWatchlist, getData, flipClicked } from '../../Redux/Actions';
+import SearchInput from '../SearchInput/SearchInput';
+import PriceCard from '../PriceCard/PriceCard';
+import Peers from '../Peers/Peers';
+import './Dashboard.css';
 
 class Dashboard extends PureComponent {
     state = {
@@ -79,7 +79,7 @@ class Dashboard extends PureComponent {
                                                         peers={peers}
                                                     />
                                                 </span>
-                                            )
+                                            );
                                         })}
 
                                     </div>
@@ -107,11 +107,11 @@ class Dashboard extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    isLoading: state.loading.isLoading,
-    quote: state.getData.quote,
-    peers: state.getData.peers,
+    isLoading: state.chartData.isLoading,
+    quote: state.chartData.quote,
+    peers: state.chartData.peers,
     // news: state.getDatanews,
-})
+});
 
 const mapDispatchToProps = dispatch => ({
     addToWatchlist: ticker => dispatch(addToWatchlist(ticker)),

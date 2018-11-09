@@ -7,16 +7,16 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Switch } from 'react-router';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import getData from './redux/reducer/chartdata';
-import loading from './redux/reducer/loading';
-import watchlisthelper from './redux/reducer/watchlisthelper';
-import Dashboard from './components/stock_dashboard/dashboard';
-import WatchListDashboard from './components/watchlist/watchlist-dashboard';
+import chartData from './Redux/Reducer/chartdata';
+import loading from './Redux/Reducer/loading';
+import watchlist from './Redux/Reducer/watchlist';
+import Dashboard from './components/StockDashboard/Dashboard';
+import WatchListDashboard from './components/Watchlist/WatchListDashboard';
 
 const rootReducer = combineReducers({
      loading,
-     getData,
-     watchlisthelper
+     chartData,
+     watchlist
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;

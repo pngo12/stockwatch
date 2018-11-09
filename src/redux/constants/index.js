@@ -1,4 +1,3 @@
-
 export const ADD_TO_WATCHLIST = 'ADD_TO_WATCHLIST'
 export const RECEIVED_ALL_DATA = 'RECEIVED_ALL_DATA'
 export const FLIP_BOOL = 'FLIP_BOOL'

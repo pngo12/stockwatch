@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Button from '../buttons/button'
-import SearchInput from '../search-input/search-input'
+import Button from '../Buttons/Button'
+import SearchInput from '../SearchInput/SearchInput'
 
 class HeroHome extends Component {
     state = {
@@ -11,7 +11,7 @@ class HeroHome extends Component {
         this.setState({
             showInput: true,
             showButton: false,
-        })
+        });
     }
 
     render() {

@@ -1,12 +1,11 @@
-
 import {combineReducers} from 'redux'
 import loading from './loading'
-import getData from './chartdata'
-import watchlist from './watchlisthelper'
+import chartData from './chartdata'
+import watchlist from './watchlist'
 
 export default combineReducers({
     watchlist,
-    getData,
+    chartData,
     loading
 })
 

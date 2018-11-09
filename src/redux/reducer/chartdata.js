@@ -3,7 +3,7 @@ import {
     GET_DATA, 
     WRONG_SYMBOL, 
     IS_LOADING
-} from '../constants'
+} from '../Constants'
 
 const initialState = {
     ticker: '',
@@ -18,14 +18,13 @@ const initialState = {
     error: false,
 }
 
-const getData = (state = initialState, action) => {
+const chartData = (state = initialState, action) => {
     switch (action.type) {
         case RECEIVED_ALL_DATA:
             return {
                 ...state,
                 ...action.payload,
                 doneLoading: true,
-                error: false,
             }
         case GET_DATA:
             return { ...state, isLoading: false, chart: action.payload}
@@ -38,4 +37,4 @@ const getData = (state = initialState, action) => {
     }
 }
 
-export default getData;
+export default chartData;

@@ -1,4 +1,4 @@
-import { ADD_TO_WATCHLIST, REMOVE_STOCK_FROM_WATCHLIST } from '../constants'
+import { ADD_TO_WATCHLIST, REMOVE_STOCK_FROM_WATCHLIST } from '../Constants'
 
 const initialState = {
     watchlist: [],

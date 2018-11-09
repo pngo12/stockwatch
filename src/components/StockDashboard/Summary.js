@@ -62,7 +62,7 @@ class Summary extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-    quote: state.getData.quote
+    quote: state.chartData.quote
 });
 
 export default connect(mapStateToProps, null)(Summary);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getData } from '../../redux/actions'
+import { getData } from '../../Redux/Actions'
 
 class SearchInput extends Component {
     state = {
@@ -41,16 +41,16 @@ class SearchInput extends Component {
                         : <span></span>
                 }
             </div>
-        )
+        );
     }
 }
 
 const mapStateToProps = state => ({
-    error: state.getData.error
-})
+    error: state.chartData.error
+});
 
 const mapDispatchToProps = dispatch => ({
     getData: ticker => dispatch(getData(ticker))
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchInput)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);

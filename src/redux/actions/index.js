@@ -7,9 +7,9 @@ import {
     IS_LOADING,
     GET_DATA,
     FLIP_CLICKED
-} from '../constants';
+} from '../Constants';
 
-export const getData = ticker => async dispatch => {
+export const getData = ticker => dispatch => {
 
     axios.all([
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/quote`),
@@ -57,7 +57,6 @@ export const addToWatchlist = ticker => async dispatch => {
     catch (err) {
         console.log(err);
     }
-
 }
 
 export const removeFromWatchlist = id => dispatch => dispatch({ type: REMOVE_STOCK_FROM_WATCHLIST, payload: id });
