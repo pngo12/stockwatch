@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import Chart from './chart';
 import Profile from './profile';
 import Summary from './summary';
-import Sidebar from '../sidebar/sidebar';
-import { addToWatchlist, getData, flipClicked } from '../../redux/actions/';
+import Sidebar from '../Sidebar/Sidebar';
+import { addToWatchlist, getData, flipClicked } from '../../Redux/Actions/';
 import SearchInput from '../search-input/search-input';
 import PriceCard from '../price-card/priceCard';
-import Peers from '../peers/peers';
+import Peers from '../Peers/Peers';
 import './dashboard.css';
 
 class Dashboard extends PureComponent {

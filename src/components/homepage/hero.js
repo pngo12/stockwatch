@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../buttons/button'
+import Button from '../Buttons/Button'
 import SearchInput from '../search-input/search-input'
 
 class HeroHome extends Component {

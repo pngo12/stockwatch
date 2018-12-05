@@ -7,7 +7,7 @@ import {
     IS_LOADING,
     GET_DATA,
     FLIP_CLICKED
-} from '../constants';
+} from '../Constants';
 
 export const getData = ticker => async dispatch => {
 

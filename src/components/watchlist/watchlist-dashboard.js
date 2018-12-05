@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Sidebar from '../sidebar/sidebar';
-import WatchlistCard from '../watchlist/watchlist-card';
+import Sidebar from '../Sidebar/Sidebar';
+import WatchlistCard from '../Watchlist/watchlist-card';
 import { connect } from 'react-redux';
 
 class WatchListDashboard extends Component {

@@ -3,7 +3,7 @@ import {
     GET_DATA, 
     WRONG_SYMBOL, 
     IS_LOADING
-} from '../constants'
+} from '../Constants'
 
 const initialState = {
     ticker: '',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeFromWatchlist } from '../../redux/actions';
+import { removeFromWatchlist } from '../../Redux/Actions';
 
 const WatchlistCard = props => {
     let index = props.index
