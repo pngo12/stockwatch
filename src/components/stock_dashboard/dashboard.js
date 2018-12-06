@@ -37,6 +37,7 @@ class Dashboard extends PureComponent {
                                         companyName={this.props.quote.companyName}
                                         symbol={this.props.quote.symbol}
                                         latestPrice={this.props.quote.latestPrice}
+                                        open={this.props.quote.open}
                                     /> <br />
                                 </div>
                                 <div className="tile is-child box">

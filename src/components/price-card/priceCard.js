@@ -6,7 +6,8 @@ const PriceCard = props => {
             <p className="title">{props.companyName}</p>
             <br />
             <p className="subtitle has-text-grey">{props.symbol}</p>
-            <p className="subtitle has-text-grey"> ${props.latestPrice}</p>
+            <br />
+            <p className="title" style={{ color: props.latestPrice > props.open ? '#093' : '#ff333a'}}> ${props.latestPrice}</p>
         </div>
     );
 }
