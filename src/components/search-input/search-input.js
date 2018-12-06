@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { getData } from '../../Redux/Actions'
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getData } from '../../Redux/Actions';
 
 class SearchInput extends Component {
     state = {
@@ -13,8 +13,8 @@ class SearchInput extends Component {
     handleSubmit = () => this.props.getData(this.state.ticker);
 
     keyDown = e => {
-        e.stopPropagation()
-        e.keyCode === 13 ? this.props.getData(this.state.ticker) : '';
+        e.stopPropagation();
+        if (e.keyCode === 13) this.props.getData(this.state.ticker);
     }
 
     render() {

@@ -11,4 +11,4 @@ const PriceCard = props => {
     );
 }
 
-export default PriceCard
+export default PriceCard;

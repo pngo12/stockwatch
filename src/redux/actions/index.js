@@ -1,15 +1,12 @@
 import axios from 'axios';
 import {
     RECEIVED_ALL_DATA,
-    ADD_TO_WATCHLIST,
-    REMOVE_STOCK_FROM_WATCHLIST,
     WRONG_SYMBOL,
     IS_LOADING,
-    GET_DATA,
-    FLIP_CLICKED
+    GET_DATA
 } from '../Constants';
 
-export const getData = ticker => async dispatch => {
+export const getData = ticker => dispatch => {
 
     axios.all([
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/quote`),
@@ -48,19 +45,4 @@ export const getChartDate = (range, ticker) => async dispatch => {
         console.log(err);
     }
 }
-
-export const addToWatchlist = ticker => async dispatch => {
-    try {
-        const addToWatchlist = await axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/quote`);
-        dispatch({ type: ADD_TO_WATCHLIST, payload: addToWatchlist.data });
-    }
-    catch (err) {
-        console.log(err);
-    }
-
-}
-
-export const removeFromWatchlist = id => dispatch => dispatch({ type: REMOVE_STOCK_FROM_WATCHLIST, payload: id });
-
-export const flipClicked = () => dispatch => dispatch({ type: FLIP_CLICKED });
 
