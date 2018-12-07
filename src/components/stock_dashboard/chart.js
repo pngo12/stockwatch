@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux'
-import { getChartDate } from '../../Redux/Actions/index'
+import { getChartDate } from '../../redux/actions/index'
 import loading from '../../images/loading.gif'
 
 class Chart extends PureComponent {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Chart from './chart';
 import Profile from './profile';
 import Summary from './summary';
-import { getData } from '../../Redux/Actions/index';
+import { getData } from '../../redux/actions/index';
 import SearchInput from '../search-input/search-input';
 import PriceCard from '../price-card/priceCard';
 import Peers from '../Peers/Peers';
