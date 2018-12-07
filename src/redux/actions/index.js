@@ -4,7 +4,7 @@ import {
     WRONG_SYMBOL,
     IS_LOADING,
     GET_DATA
-} from '../Constants';
+} from '../constants';
 
 export const getData = ticker => dispatch => {
 
