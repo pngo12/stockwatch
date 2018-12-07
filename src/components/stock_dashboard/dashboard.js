@@ -6,7 +6,7 @@ import Summary from './summary';
 import { getData } from '../../redux/actions/index';
 import SearchInput from '../search-input/search-input';
 import PriceCard from '../price-card/priceCard';
-import Peers from '../Peers/Peers';
+import Peers from '../peers/peers';
 import './dashboard.css';
 
 class Dashboard extends PureComponent {
