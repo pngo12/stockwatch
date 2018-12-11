@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getData } from '../../redux/actions/index';
+import { getData } from '../../Redux/Actions/index';
 
 class SearchInput extends Component {
     state = {

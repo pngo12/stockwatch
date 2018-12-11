@@ -4,12 +4,12 @@ import {
     WRONG_SYMBOL,
     IS_LOADING,
     GET_DATA
-} from '../constants';
+} from '../Constants';
 
 export const getData = ticker => dispatch => {
 
     axios.all([
-        axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/quote`),
+        axios.get(process.env.REACT_APP_API+`${ticker}/quote`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/company`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/earnings`),
         axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/peers`),

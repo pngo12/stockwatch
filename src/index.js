@@ -10,8 +10,8 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import getData from './redux/reducer/chartdata';
-import loading from './redux/reducer/loading';
+import getData from './Redux/Reducer/chartdata';
+import loading from './Redux/Reducer/loading';
 import Dashboard from './components/stock_dashboard/dashboard';
 
 const rootReducer = combineReducers({
