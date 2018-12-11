@@ -9,12 +9,12 @@ import {
 export const getData = ticker => dispatch => {
 
     axios.all([
-        axios.get(process.env.REACT_APP_API+`${ticker}/quote`),
-        axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/company`),
-        axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/earnings`),
-        axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/peers`),
-        axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/chart/1d`),
-        axios.get(`https://api.iextrading.com/1.0/stock/${ticker}/news`),
+        axios.get(process.env.REACT_APP_API + `/${ticker}/quote`),
+        axios.get(process.env.REACT_APP_API + `/${ticker}/company`),
+        axios.get(process.env.REACT_APP_API + `/${ticker}/earnings`),
+        axios.get(process.env.REACT_APP_API + `/${ticker}/peers`),
+        axios.get(process.env.REACT_APP_API + `/${ticker}/chart/1d`),
+        axios.get(process.env.REACT_APP_API + `/${ticker}/news`),
     ])
         .then(axios.spread((quote, company, earnings, peers, chart, news) => {
             dispatch({
