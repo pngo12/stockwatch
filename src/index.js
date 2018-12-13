@@ -19,9 +19,11 @@ const rootReducer = combineReducers({
     getData,
 });
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+
 const store = createStore(
     rootReducer,
-    applyMiddleware(thunk)
+    composeEnhancers(applyMiddleware(thunk))
 );
 
 ReactDOM.render(
